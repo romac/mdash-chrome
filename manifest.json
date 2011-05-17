@@ -1,0 +1,14 @@
+{
+    "name"           : "Dashboard",
+    "version"        : "0.1",
+    "description"    : "A minimal dashboard replacing the \"New Tab\" page which syncs with your bookmarks.",
+    "icons": {
+        "16": "img/favicon.ico"
+    },
+    "permissions": [
+        "bookmarks"
+    ],
+    "chrome_url_overrides" : {
+        "newtab" : "html/dashboard.html"
+    }
+}

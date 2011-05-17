@@ -1,0 +1,81 @@
+/* <![CDATA[ */
+    
+    @font-face {
+        font-family:                Lekton;
+        src:                        url( '../fonts/Lekton/Lekton-Regular.ttf' );
+    }
+    
+    @font-face {
+        font-family:                Lekton;
+        font-style:                 italic;
+        src:                        url( '../fonts/Lekton/Lekton-Italic.ttf' );
+    }
+    
+    @font-face {
+        font-family:                Lekton;
+        font-weight:                bold;
+        src:                        url( '../fonts/Lekton/Lekton-Bold.ttf' );
+    }
+    
+    BODY {
+        background-color:           #EFEFEF;
+        font-family:                Lekton, Arial, serif;
+        color:                      #365aba;
+        margin:                     0px 0px 0px 0px;
+        padding:                    0px 0px 0px 20px;
+    }
+    
+    #container-left {
+        float:                      left;
+        position:                   fixed;
+        width:                      50%;
+        margin:                     0px 0px 60px 0px;
+        padding:                    0px 0px 0px 0px;
+    }
+    
+    #container-right {
+        float:                      right;
+        width:                      50%;
+        margin:                     0px 0px 0px 0px;
+        padding:                    0px 0px 60px 0px;
+    }
+    
+    section {
+        clear:                      both;
+        padding:                    8px 0px 0px 0px;
+    }
+    
+    H1 {
+        font-size:                  13px;
+        color:                      #666666;
+        font-weight:                bold;
+    }
+    
+    H2 {
+        margin:                     0px;
+        padding:                    0px;
+        font-size:                  0.9em;
+        font-weight:                bold;
+        letter-spacing:             0.1em;
+    }
+    
+    A {
+        display:                    block;
+        text-decoration:            none;
+        float:                      left;
+        background-color:           #FFFFFF;
+        border-radius:              6px 6px 6px 6px;
+        box-shadow:                 0 1px 3px #CCCCCC;
+        width:                      120px;
+        height:                     70px;
+        padding:                    10px 5px 5px 7px;
+        margin:                     1px 3px 3px 0px;
+        color:                      #365aba;
+    }
+    
+    A:hover {
+        background-color:           #b6c5ef;
+        color:                      365aba;
+    }
+    
+/* ]]> */
