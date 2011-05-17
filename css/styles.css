@@ -71,11 +71,13 @@
         padding:                    10px 5px 5px 7px;
         margin:                     1px 3px 3px 0px;
         color:                      #365aba;
+        overflow:                   hidden;
+        text-overflow:              ellipsis;
     }
     
     A:hover {
         background-color:           #b6c5ef;
-        color:                      365aba;
+        color:                      #365aba;
     }
     
 /* ]]> */
