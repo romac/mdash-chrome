@@ -1,35 +1,3 @@
-(function(undefined){
-  if (String.prototype.trim === undefined) // fix for iOS 3.2
-    String.prototype.trim = function(){ return this.replace(/^\s+/, '').replace(/\s+$/, '') };
-
-  // For iOS 3.x
-  // from https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/reduce
-  if (Array.prototype.reduce === undefined)
-    Array.prototype.reduce = function(fun){
-      if(this === void 0 || this === null) throw new TypeError();
-      var t = Object(this), len = t.length >>> 0, k = 0, accumulator;
-      if(typeof fun != 'function') throw new TypeError();
-      if(len == 0 && arguments.length == 1) throw new TypeError();
-
-      if(arguments.length >= 2)
-       accumulator = arguments[1];
-      else
-        do{
-          if(k in t){
-            accumulator = t[k++];
-            break;
-          }
-          if(++k >= len) throw new TypeError();
-        } while (true);
-
-      while (k < len){
-        if(k in t) accumulator = fun.call(undefined, accumulator, t[k], k, t);
-        k++;
-      }
-      return accumulator;
-    };
-
-})();
 var Zepto = (function() {
   var undefined, key, css, $$, classList,
     emptyArray = [], slice = emptyArray.slice,
@@ -241,8 +209,8 @@ var Zepto = (function() {
     removeAttr: function(name) {
       return this.each(function() { this.removeAttribute(name); });
     },
-    data: function(name, value){
-      return this.attr('data-' + name, value);
+    data: function(name, value) {
+        return this.attr('data-' + name, value);
     },
     val: function(value){
       return (value === undefined) ?
@@ -640,53 +608,61 @@ var Zepto = (function() {
   };
 })(Zepto);
 (function($){
-  var touch = {}, touchTimeout;
+  var cache = [], timeout;
 
-  function parentIfText(node){
-    return 'tagName' in node ? node : node.parentNode;
-  }
-
-  function swipeDirection(x1, x2, y1, y2){
-    var xDelta = Math.abs(x1 - x2), yDelta = Math.abs(y1 - y2);
-    if (xDelta >= yDelta) {
-      return (x1 - x2 > 0 ? 'Left' : 'Right');
-    } else {
-      return (y1 - y2 > 0 ? 'Up' : 'Down');
-    }
-  }
-
-  $(document).ready(function(){
-    $(document.body).bind('touchstart', function(e){
-      var now = Date.now(), delta = now - (touch.last || now);
-      touch.target = parentIfText(e.touches[0].target);
-      touchTimeout && clearTimeout(touchTimeout);
-      touch.x1 = e.touches[0].pageX;
-      touch.y1 = e.touches[0].pageY;
-      if (delta > 0 && delta <= 250) touch.isDoubleTap = true;
-      touch.last = now;
-    }).bind('touchmove', function(e){
-      touch.x2 = e.touches[0].pageX;
-      touch.y2 = e.touches[0].pageY;
-    }).bind('touchend', function(e){
-      if (touch.isDoubleTap) {
-        $(touch.target).trigger('doubleTap');
-        touch = {};
-      } else if (touch.x2 > 0 || touch.y2 > 0) {
-        (Math.abs(touch.x1 - touch.x2) > 30 || Math.abs(touch.y1 - touch.y2) > 30)  &&
-          $(touch.target).trigger('swipe') &&
-          $(touch.target).trigger('swipe' + (swipeDirection(touch.x1, touch.x2, touch.y1, touch.y2)));
-        touch.x1 = touch.x2 = touch.y1 = touch.y2 = touch.last = 0;
-      } else if ('last' in touch) {
-        touchTimeout = setTimeout(function(){
-          touchTimeout = null;
-          $(touch.target).trigger('tap')
-          touch = {};
-        }, 250);
+  $.fn.remove = function(){
+    return this.each(function(){
+      if(this.tagName == 'IMG'){
+        cache.push(this);
+        this.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+        if (timeout) clearTimeout(timeout);
+        timeout = setTimeout(function(){ cache = [] }, 60000);
       }
-    }).bind('touchcancel', function(){ touch = {} });
-  });
-
-  ['swipe', 'swipeLeft', 'swipeRight', 'swipeUp', 'swipeDown', 'doubleTap', 'tap'].forEach(function(m){
-    $.fn[m] = function(callback){ return this.bind(m, callback) }
-  });
+      this.parentNode.removeChild(this);
+    });
+  }
 })(Zepto);
+
+( function( $ )
+{
+    var data = {},
+        uuid = $.uuid = ( new Date() ).getTime();
+        exp  = $.expando = 'Zepto' + uuid;
+
+    function isScalar( value )
+    {
+        return /boolean|number|string/.test( typeof value );
+    }
+
+    function getData( name )
+    {
+        var id = this[ 0 ][ exp ];
+
+        return ( id && data[ id ] && data[ id ][ name ]
+            ? data[ id ][ name ]
+            : this.dataAttr( name )
+        );
+    }
+
+    function setData( name, value )
+    {
+        if( isScalar( value ) ) return this.dataAttr( name, value );
+
+        var id = this[ 0 ][ exp ] = ++uuid;
+
+        data[ id ]         = data[ id ] || {};
+        data[ id ][ name ] = value;
+
+        return this;
+    }
+
+    $.fn.dataAttr = $.fn.data;
+    $.fn.data     = function( name, value )
+    {
+        return ( value === undefined
+            ? getData.call( this, name )
+            : setData.call( this, name, value )
+        );
+    };
+
+} )( Zepto );
