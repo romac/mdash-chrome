@@ -4,11 +4,11 @@
     
     d.Manager = Manager;
     
-    function Manager( rootPath, FinderClass )
+    function Manager( rootPath, Finder )
     {
-        this.rootPath    = rootPath;
-        this.api         = chrome.bookmarks;
-        this.FinderClass = FinderClass;
+        this.rootPath = rootPath;
+        this.api      = chrome.bookmarks;
+        this.Finder   = Finder;
     }
     
     Manager.prototype = {
@@ -20,52 +20,96 @@
             this.api.getTree( function( trees )
             {
                 self.tree   = trees[ 0 ];
-                self.finder = new self.FinderClass( self.tree );
+                self.finder = new self.Finder( self.tree );
                 
-                cb && cb.call && cb.call( self );
-            } );
-        },
-        
-        getRoot: function()
-        {
-            if( !this.root )
-            {
-                this.root = this.finder.findByPath( this.rootPath );
-            }
-            
-            return this.root;
-        },
-        
-        create : function( path, props )
-        {
-            var parts = ( this.rootPath + '/' + path ).split( '/' ),
-                ptr   = 0,
-                cur   = this.tree,
-                tmp   = null,
-                i;
-            
-            for( i = 0; i < parts.length; i++ )
-            {
-                _( i, cur );
-                
-                tmp = this.finder.findBy( 'title', parts[ i ], this.FinderClass.TYPE.FOLDER, cur );
-                
-                if( !tmp )
+                if( !self.root )
                 {
-                    tmp = this.api.create(
+                    self.create(
+                        '',
                         {
-                            title : parts[ i ],
-                            parentId : cur.id
+                            title : '[DO_NOT_DELETE]',
+                            url   : 'about:blank'
+                        },
+                        function( doNotDelete, root )
+                        {
+                            this._root = root;
+                            
+                            cb && cb( self );
                         }
                     );
                 }
+                else
+                {
+                    cb && cb( self );
+                }
+            } );
+        },
+        
+        get root()
+        {
+            return this._root;
+        },
+        
+        create : function( path, props, cb )
+        {
+            var self  = this,
+                parts = ( this.rootPath + '/' + path ).split( '/' ),
+                cur   = this.tree,
+                tmp   = null;
+            
+            function loop( cb )
+            {
+                var part = parts.shift();
                 
-                cur = tmp;
+                if( !part )
+                {
+                    cb( cur );
+                    
+                    return;
+                }
+                
+                tmp = self.finder.findBy(
+                    'title',
+                    part,
+                    self.Finder.TYPE.FOLDER,
+                    cur
+                );
+                
+                if( !tmp )
+                {
+                    self.api.create(
+                        {
+                            title    : part,
+                            parentId : cur.id
+                        },
+                        function( result )
+                        {
+                            cur = result;
+                            
+                            loop( cb );
+                        }
+                    );
+                }
+                else
+                {
+                    cur = tmp;
+                    
+                    loop( cb );
+                }
             }
             
-            props.parentId = cur.id;
-            
-            return this.api.create( props );
+            loop( function( parent )
+            {
+                props.parentId = parent.id;
+                
+                self.api.create(
+                    props,
+                    function( bookmark )
+                    {
+                        cb && cb( bookmark, cur );
+                    }
+                );
+            } );
         }
     };
     
