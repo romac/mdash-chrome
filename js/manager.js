@@ -2,115 +2,125 @@
 ( function( global, chrome, d )
 {
     
-    d.Manager = Manager;
+    var api = chrome.bookmarks;
     
-    function Manager( rootPath, Finder )
+    function Manager()
     {
-        this.rootPath = rootPath;
-        this.api      = chrome.bookmarks;
-        this.Finder   = Finder;
+        
     }
     
     Manager.prototype = {
         
-        initialize : function( cb )
+        folderName  : '[Dashboard]',
+        placeHolder : '[DO_NOT_DELETE]',
+        
+        initialize : function( callback )
         {
             var self = this;
             
-            this.api.getTree( function( trees )
+            api.getTree( function( tree )
             {
-                self.tree   = trees[ 0 ];
-                self.finder = new self.Finder( self.tree );
-                
-                if( !self.root )
-                {
-                    self.create(
-                        '',
-                        {
-                            title : '[DO_NOT_DELETE]',
-                            url   : 'about:blank'
-                        },
-                        function( doNotDelete, root )
-                        {
-                            this._root = root;
-                            
-                            cb && cb( self );
-                        }
-                    );
-                }
-                else
-                {
-                    cb && cb( self );
-                }
+                self.tree = tree[ 0 ];
             } );
-        },
-        
-        get root()
-        {
-            return this._root;
-        },
-        
-        create : function( path, props, cb )
-        {
-            var self  = this,
-                parts = ( this.rootPath + '/' + path ).split( '/' ),
-                cur   = this.tree,
-                tmp   = null;
             
-            function loop( cb )
-            {
-                var part = parts.shift();
-                
-                if( !part )
+            api.search(
+                self.placeHolder,
+                function( results )
                 {
-                    cb( cur );
-                    
-                    return;
-                }
-                
-                tmp = self.finder.findBy(
-                    'title',
-                    part,
-                    self.Finder.TYPE.FOLDER,
-                    cur
-                );
-                
-                if( !tmp )
-                {
-                    self.api.create(
+                    if( !results.length )
+                    {
+                        self.createRoot( callback );
+                    }
+                    else
+                    {
+                        api.get( results[ 0 ].parentId, function( folder )
                         {
-                            title    : part,
-                            parentId : cur.id
-                        },
-                        function( result )
-                        {
-                            cur = result;
+                            self.folder = folder[ 0 ];
                             
-                            loop( cb );
-                        }
-                    );
+                            callback();
+                        } );
+                    }
                 }
-                else
-                {
-                    cur = tmp;
-                    
-                    loop( cb );
-                }
+            );
+        },
+        
+        getSections : function( callback )
+        {
+            var self = this;
+            
+            if( this.folder.children )
+            {
+                callback( this.folder.children );
+                
+                return;
             }
             
-            loop( function( parent )
+            api.getChildren( this.folder.id, function( children )
             {
-                props.parentId = parent.id;
-                
-                self.api.create(
-                    props,
-                    function( bookmark )
+                children.forEach( function( b, i )
+                {
+                    if( b.title === self.placeHolder )
                     {
-                        cb && cb( bookmark, cur );
+                        children.splice( i, 1 );
                     }
-                );
+                } );
+                
+                self.folder.children = children;
+                
+                callback( children );
             } );
+        },
+        
+        getBookmarks : function( section, callback )
+        {
+            var self = this;
+            
+            if( section.children )
+            {
+                callback( section.children );
+                
+                return;
+            }
+            
+            api.getChildren( section.id, function( children )
+            {
+                section.children = children;
+                
+                callback( children );
+            } );
+        },
+        
+        createRoot : function( callback )
+        {
+            var self = this;
+            
+            api.create(
+                {
+                    parentId : self.tree.children[ 1 ].id,
+                    title    : self.folderName
+                },
+                function( folder )
+                {
+                    self.folder = folder;
+                    
+                    api.create(
+                        {
+                            parentId : folder.id,
+                            title    : self.placeHolder,
+                            url      : 'about:blank'
+                        },
+                        function()
+                        {
+                            callback();
+                        }
+                    );
+                }
+            );
+            
+            self.createRoot = function( callback ) { callback(); };
         }
     };
+    
+    d.Manager = Manager;
     
 } )( this, chrome, this.Dashboard = this.Dashboard || {} );

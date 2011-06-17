@@ -1,17 +1,44 @@
 
 ( function( $, d, undefined )
 {
-    window._ = console.debug.bind( console );
+    d._ = window.console.debug.bind( window.console );
     
-    var m = new d.Manager( 'Other Bookmarks/A/B/C/[Dashboard]', d.Finder );
+    var m = new d.Manager();
     
-    m.initialize( init );
+    m.initialize( initialized );
     
-    function init( manager )
+    function initialized()
     {
-        console.log( 'Under (not that heavy) development. Stay tuned.' );
+        var $c = $( '#container' ), $s;
         
-        console.debug( manager.root );
+        m.getSections( function( sections )
+        {
+            sections.forEach( function( section )
+            {
+                $s = $( '<section></section>' );
+                
+                $s.append( '<h1>' + section.title + '</h1>' );
+                $c.append( $s );
+                
+                ( function( $section )
+                {
+                    m.getBookmarks(
+                        section,
+                        function( bookmarks )
+                        {
+                            bookmarks.forEach( function( bookmark )
+                            {
+                                var $a = $( '<a>' + bookmark.title + '</a>' );
+                                    $a.attr( 'href', bookmark.url );
+                                    
+                                $section.append( $a );
+                            } );
+                        }
+                    );
+                    
+                } )( $s );
+            } );
+        } );
     }
     
 } )( Zepto, this.Dashboard );

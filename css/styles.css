@@ -51,17 +51,12 @@
         font-weight:                bold;
     }
     
-    H2 {
-        margin:                     0px;
-        padding:                    0px;
-        font-size:                  0.9em;
-        font-weight:                bold;
-        letter-spacing:             0.1em;
-    }
-    
     A {
         display:                    block;
         text-decoration:            none;
+        font-size:                  0.9em;
+        font-weight:                bold;
+        letter-spacing:             0.1em;
         float:                      left;
         background-color:           #FFFFFF;
         border-radius:              6px 6px 6px 6px;
