@@ -5,40 +5,11 @@
     
     var m = new d.Manager();
     
-    m.initialize( initialized );
-    
-    function initialized()
+    m.initialize( function()
     {
-        var $c = $( '#container' ), $s;
+        var v = new d.View( $( '#container' ), m );
         
-        m.getSections( function( sections )
-        {
-            sections.forEach( function( section )
-            {
-                $s = $( '<section></section>' );
-                
-                $s.append( '<h1>' + section.title + '</h1>' );
-                $c.append( $s );
-                
-                ( function( $section )
-                {
-                    m.getBookmarks(
-                        section,
-                        function( bookmarks )
-                        {
-                            bookmarks.forEach( function( bookmark )
-                            {
-                                var $a = $( '<a>' + bookmark.title + '</a>' );
-                                    $a.attr( 'href', bookmark.url );
-                                    
-                                $section.append( $a );
-                            } );
-                        }
-                    );
-                    
-                } )( $s );
-            } );
-        } );
-    }
+        v.display();
+    } );
     
 } )( Zepto, this.Dashboard );
