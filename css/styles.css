@@ -17,7 +17,7 @@
         src:                        url( '../fonts/Lekton/Lekton-Bold.ttf' );
     }
     
-    BODY {
+    body {
         background-color:           #EFEFEF;
         font-family:                Lekton, Arial, serif;
         color:                      #365aba;
@@ -25,33 +25,58 @@
         padding:                    0px 0px 0px 20px;
     }
     
-    #container-left {
-        float:                      left;
+    #container > .left {
         position:                   fixed;
-        width:                      50%;
-        margin:                     0px 0px 60px 0px;
+        float:                      left;
+        width:                      49%;
+        margin:                     0px 0px 30px 0px;
         padding:                    0px 0px 0px 0px;
     }
     
-    #container-right {
+    #container > .right {
         float:                      right;
-        width:                      50%;
-        margin:                     0px 0px 0px 0px;
+        width:                      49%;
+        margin:                     0px 0px 0px 30px;
         padding:                    0px 0px 60px 0px;
     }
+    
+    #container > .left, #container > .right {
+        
+    }
+    
+    .plus {
+        display:                    block;
+        position:                   absolute;
+        bottom:                     10px;
+        background-color:           rgba( 0, 0, 0, 0.5 );
+        line-height:                19px;
+        height:                     16px;
+        width:                      16px;
+        border-radius:              17px;
+        color:                      #FFF;
+        text-align:                 center;
+    }
+    
+    .plus:hover {
+        cursor:                     pointer;
+        background-color:           rgba( 0, 0, 0, 0.7 );
+    }
+    
+    .plus.left  { left:             10px; }
+    .plus.right { right:            10px; }
     
     section {
         clear:                      both;
         padding:                    8px 0px 0px 0px;
     }
     
-    H1 {
+    h1 {
         font-size:                  13px;
         color:                      #666666;
         font-weight:                bold;
     }
     
-    A {
+    a {
         display:                    block;
         text-decoration:            none;
         font-size:                  0.9em;
@@ -64,13 +89,13 @@
         width:                      120px;
         height:                     70px;
         padding:                    10px 5px 5px 7px;
-        margin:                     1px 3px 3px 0px;
+        margin:                     2px 6px 6px 2px;
         color:                      #365aba;
         overflow:                   hidden;
         text-overflow:              ellipsis;
     }
     
-    A:hover {
+    a:hover {
         background-color:           #b6c5ef;
         color:                      #365aba;
     }

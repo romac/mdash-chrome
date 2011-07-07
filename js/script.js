@@ -10,6 +10,15 @@
         var v = new d.View( $( '#container' ), m );
         
         v.display();
+        
+        $( '.plus' ).bind( 'click', function( e )
+        {
+            var $target = $( e.target ),
+                $col    = $( '#container' ).find( $target.data( 'el' ) );
+                
+            
+        } );
+        
     } );
     
 } )( Zepto, this.Dashboard );

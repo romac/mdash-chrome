@@ -5,7 +5,8 @@
     function View( $element, manager )
     {
         this.manager  = manager;
-        this.$element = $element;
+        this.$left    = $element.find( '.left' );
+        this.$right   = $element.find( '.right' );
     }
     
     View.prototype.display = function()
@@ -16,10 +17,12 @@
         {
             sections.forEach( function( section )
             {
+                var $column = ( section.title.substring( 0, 1 ) === '+' ) ? self.$left : self.$right;
+                
                 $s = $( '<section></section>' );
                 
-                $s.append( '<h1>' + section.title + '</h1>' );
-                self.$element.append( $s );
+                $s.append( '<h1>' + section.title.substring( 1 ) + '</h1>' );
+                $column.append( $s );
                 
                 ( function( $section )
                 {
@@ -29,10 +32,9 @@
                         {
                             bookmarks.forEach( function( bookmark )
                             {
-                                var $a = $( '<a>' + bookmark.title + '</a>' );
-                                    $a.attr( 'href', bookmark.url );
+                                var $link = $( '<a href="' + bookmark.url + '">' + bookmark.title + '</a>' );
                                     
-                                $section.append( $a );
+                                $section.append( $link );
                             } );
                         }
                     );
