@@ -39,6 +39,13 @@ Then, browse to any website you'd like to add to the dashboard and click the sta
 
 <img src="http://f.cl.ly/items/3U2e2c0T421A2X1P1T43/star.png" alt="Add bookmark" />
 
+## Planned features
+
+- Drag bookmarks around to re-order them or put them in another section.
+- Add a bookmark/section straight from the dashboard.
+- Widgets (weather/news/etc.)
+- Skins and maybe themes.
+
 ## License
 
 **—dash** is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
