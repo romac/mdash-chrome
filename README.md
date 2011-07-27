@@ -12,9 +12,10 @@
 ### Latest version (from source)
 
 1. Clone the repository.  
-2. Open Chrome and go to `chrome://extensions`.  
-3. Toggle the `Developer mode`.  
-4. Click `Load unpacked extension...`  
+   `$ git clone https://romac@github.com/romac/mdash.git`
+2. Open Chrome and go to `chrome://extensions`  
+3. Toggle the **Developer mode**.  
+4. Click **Load unpacked extension...**  
 5. Select the previously cloned repository.  
 
 ### Latest 'stable' version (packed)
