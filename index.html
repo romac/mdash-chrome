@@ -21,6 +21,18 @@
                 margin:                     0 auto;
             }
             
+            section {
+                background-color:           white;
+                -webkit-border-radius:      10px;
+                -moz-border-radius:         10px;
+                -o-border-radius:           10px;
+                -ms- border-radius:         10px;
+                border-radius:              10px;
+                box-shadow:                 0 1px 3px #CCCCCC;
+                padding:                    20px 30px 15px 30px;
+                margin-bottom:              20px;
+            }
+            
             a, strong, h1, h2 {
                 color:                      #365ABA;
             }
@@ -28,6 +40,20 @@
             h1, h2 {
                 font-family:                Lekton;
                 text-shadow:                0px -1px 0px #FFF;
+            }
+            
+            h1 {
+                margin-top:                 20px;
+                margin-bottom:              5px;
+            }
+            
+            h2 {
+                margin-top:                 0;
+                margin-bottom:              5px;
+            }
+            
+            p {
+                margin:                     0;
             }
             
             code {
@@ -44,15 +70,19 @@
     </head>
     <body>
         <div id="container">
-            <h1 id="mdash">—dash</h1>
-            <p class="big">
-                <strong>—dash</strong> is a tiny Chrome extension which aims to replace the <strong>New Tab</strong> page with a light dashboard linked with your bookmarks.
-            </p>
-            <p>
-                <img src="http://f.cl.ly/items/262G2o2h2b1t011M2v1A/dashboard.png" alt="Dashboard" width="800" />
-            </p>
+            <header>
+                <h1 id="mdash">—dash</h1>
+            </header>
+            <section style="padding-bottom: 0px">
+                <p class="big">
+                    <strong>—dash</strong> is a tiny Chrome extension which aims to replace the <strong>New Tab</strong> page with a light dashboard linked with your bookmarks.
+                </p>
+                <p>
+                    <img src="http://f.cl.ly/items/262G2o2h2b1t011M2v1A/dashboard.png" alt="Dashboard" width="800" style="margin-left: -30px" />
+                </p>
+            </section>
             <h1 id="installation">Installation</h1>
-            
+            <section>
             <h2 id="latest_version_from_source">Latest version (from source)</h2>
             <ol>
                 <li>
@@ -72,6 +102,8 @@
                     Select the previously cloned repository.
                 </li>
             </ol>
+            </section>
+            <section>
             <h2 id="latest_stable_version_packed">Latest &#8216;stable&#8217; version (packed)</h2>
             <ol>
                 <li>
@@ -84,12 +116,16 @@
                     Drop the .crx file onto Chrome.
                 </li>
             </ol>
+            </section>
             <h1 id="usage">Usage</h1>
+            <section>
             <h2 id="first_time">First time</h2>
             <p>
                 Once the extension is installed, just open a new window to activate it. <br />
                 You&#8217;ll now see an empty dashboard. This is needed in order to enable to extension to create a special folder named <strong>[Dashboard]</strong> in the <strong>Other Bookmarks</strong> folder.
             </p>
+            </section>
+            <section>
             <h2 id="add_a_section">Add a section</h2>
             <p>
                 To add a section to the dashboard, open the <strong>Bookmarks Manager</strong> and browse to<br />
@@ -104,6 +140,8 @@
             <p>
                 <img src="http://f.cl.ly/items/0y2g1e2v2p0Y150z0x1l/bookmarks.png" alt="Bookmarks Manager" width="600" />
             </p>
+            </section>
+            <section>
             <h2 id="add_a_bookmark">Add a bookmark</h2>
             <p>
                 Browse any website you would like to add to the dashboard and click the star at the right of the address bar, then choose one of the previously created folders.
@@ -111,7 +149,9 @@
             <p>
                 <img src="http://f.cl.ly/items/3U2e2c0T421A2X1P1T43/star.png" alt="Add bookmark" />
             </p>
-            <h1 id="planned_features">Planned features</h1>
+            </section>
+            <section>
+            <h1 id="planned_features" style="margin-top: 0">Planned features</h1>
             <ul>
                 <li>Drag bookmarks around to re-order them or put them in another section.</li>
                 <li>Add a bookmark/section straight from the dashboard.</li>
@@ -127,6 +167,7 @@
             <p>
                 <strong>—dash</strong> is licensed under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT license</a>.
             </p>
+            </section>
         </div>
         <a href="https://github.com/romac/mdash">
             <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" />
