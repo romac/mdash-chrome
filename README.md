@@ -1,4 +1,3 @@
-
 # —dash
 
 **—dash** is a tiny Chrome extension which aims to replace the **New Tab** page with a light dashboard linked with your bookmarks.  
@@ -49,7 +48,6 @@ Browse any website you would like to add to the dashboard and click the star at 
 
 - Drag bookmarks around to re-order them or put them in another section.
 - Add a bookmark/section straight from the dashboard.
-- Widgets (weather/news/etc.)
 - Skins and maybe themes.
 
 # Thanks
