@@ -1,103 +1,100 @@
-/* <![CDATA[ */
+
+@font-face {
+    font-family:                Lekton;
+    src:                        url( '../fonts/Lekton/Lekton-Regular.ttf' );
+}
+
+@font-face {
+    font-family:                Lekton;
+    font-style:                 italic;
+    src:                        url( '../fonts/Lekton/Lekton-Italic.ttf' );
+}
+
+@font-face {
+    font-family:                Lekton;
+    font-weight:                bold;
+    src:                        url( '../fonts/Lekton/Lekton-Bold.ttf' );
+}
+
+body {
+    background:                 #EFEFEF url( ../img/bg.png ) repeat top left;
+    font-family:                Lekton, Arial, serif;
+    color:                      #365aba;
+    margin:                     0px 0px 0px 0px;
+    padding:                    0px 0px 0px 20px;
+}
+
+#container > .left {
+    position:                   fixed;
+    float:                      left;
+    width:                      49%;
+    margin:                     0px 0px 30px 0px;
+    padding:                    0px 0px 0px 0px;
+}
+
+#container > .right {
+    float:                      right;
+    width:                      49%;
+    margin:                     0px 0px 0px 30px;
+    padding:                    0px 0px 60px 0px;
+}
+
+#container > .left, #container > .right {
     
-    @font-face {
-        font-family:                Lekton;
-        src:                        url( '../fonts/Lekton/Lekton-Regular.ttf' );
-    }
-    
-    @font-face {
-        font-family:                Lekton;
-        font-style:                 italic;
-        src:                        url( '../fonts/Lekton/Lekton-Italic.ttf' );
-    }
-    
-    @font-face {
-        font-family:                Lekton;
-        font-weight:                bold;
-        src:                        url( '../fonts/Lekton/Lekton-Bold.ttf' );
-    }
-    
-    body {
-        background-color:           #EFEFEF;
-        font-family:                Lekton, Arial, serif;
-        color:                      #365aba;
-        margin:                     0px 0px 0px 0px;
-        padding:                    0px 0px 0px 20px;
-    }
-    
-    #container > .left {
-        position:                   fixed;
-        float:                      left;
-        width:                      49%;
-        margin:                     0px 0px 30px 0px;
-        padding:                    0px 0px 0px 0px;
-    }
-    
-    #container > .right {
-        float:                      right;
-        width:                      49%;
-        margin:                     0px 0px 0px 30px;
-        padding:                    0px 0px 60px 0px;
-    }
-    
-    #container > .left, #container > .right {
-        
-    }
-    
-    .plus {
-        display:                    none;
-        position:                   absolute;
-        bottom:                     10px;
-        background-color:           rgba( 0, 0, 0, 0.5 );
-        line-height:                19px;
-        height:                     16px;
-        width:                      16px;
-        border-radius:              17px;
-        color:                      #FFF;
-        text-align:                 center;
-    }
-    
-    .plus:hover {
-        cursor:                     pointer;
-        background-color:           rgba( 0, 0, 0, 0.7 );
-    }
-    
-    .plus.left  { left:             10px; }
-    .plus.right { right:            10px; }
-    
-    section {
-        clear:                      both;
-        padding:                    8px 0px 0px 0px;
-    }
-    
-    h1 {
-        font-size:                  13px;
-        color:                      #666666;
-        font-weight:                bold;
-    }
-    
-    a {
-        display:                    block;
-        text-decoration:            none;
-        font-size:                  0.9em;
-        font-weight:                normal;
-        letter-spacing:             0.1em;
-        float:                      left;
-        background-color:           #FFFFFF;
-        border-radius:              6px 6px 6px 6px;
-        box-shadow:                 0 1px 3px #CCCCCC;
-        width:                      120px;
-        height:                     70px;
-        padding:                    10px 5px 5px 7px;
-        margin:                     2px 6px 6px 2px;
-        color:                      #365aba;
-        overflow:                   hidden;
-        text-overflow:              ellipsis;
-    }
-    
-    a:hover {
-        background-color:           #b6c5ef;
-        color:                      #365aba;
-    }
-    
-/* ]]> */
+}
+
+.plus {
+    display:                    none;
+    position:                   absolute;
+    bottom:                     10px;
+    background-color:           rgba( 0, 0, 0, 0.5 );
+    line-height:                19px;
+    height:                     16px;
+    width:                      16px;
+    border-radius:              17px;
+    color:                      #FFF;
+    text-align:                 center;
+}
+
+.plus:hover {
+    cursor:                     pointer;
+    background-color:           rgba( 0, 0, 0, 0.7 );
+}
+
+.plus.left  { left:             10px; }
+.plus.right { right:            10px; }
+
+section {
+    clear:                      both;
+    padding:                    8px 0px 0px 0px;
+}
+
+h1 {
+    font-size:                  13px;
+    color:                      #666666;
+    font-weight:                bold;
+}
+
+a {
+    display:                    block;
+    text-decoration:            none;
+    font-size:                  0.9em;
+    font-weight:                normal;
+    letter-spacing:             0.1em;
+    float:                      left;
+    background-color:           #FFFFFF;
+    border-radius:              6px 6px 6px 6px;
+    box-shadow:                 0 1px 3px #CCCCCC;
+    width:                      120px;
+    height:                     70px;
+    padding:                    10px 5px 5px 7px;
+    margin:                     2px 6px 6px 2px;
+    color:                      #365aba;
+    overflow:                   hidden;
+    text-overflow:              ellipsis;
+}
+
+a:hover {
+    background-color:           #b6c5ef;
+    color:                      #365aba;
+}
