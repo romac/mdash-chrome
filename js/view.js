@@ -2,6 +2,7 @@
 ( function( global, chrome, d )
 {
     // I know, UGLY, but it's just a prototype.
+    // FIXME: Refactor, improve, rewrite from scrath, whatever but make it pretty and efficient ! 
     function View( $element, manager )
     {
         this.manager  = manager;
@@ -17,9 +18,9 @@
         {
             sections.forEach( function( section )
             {
-                var $column = ( section.title.substring( 0, 1 ) === '+' ) ? self.$left : self.$right;
-                
-                $s = $( '<section></section>' );
+                var $column    = ( section.title.substring( 0, 1 ) === '+' ) ? self.$left : self.$right,
+                    $s         = $( '<section></section>' );
+                    $s[ 0 ].id = section.id;
                 
                 $s.append( '<h1>' + section.title.substring( 1 ) + '</h1>' );
                 $column.append( $s );
@@ -32,7 +33,9 @@
                         {
                             bookmarks.forEach( function( bookmark )
                             {
-                                var $link = $( '<a href="' + bookmark.url + '">' + bookmark.title + '</a>' );
+                                var $link           = $( '<a>' + bookmark.title + '</a>' );
+                                    $link[ 0 ].id   = bookmark.id;
+                                    $link[ 0 ].href = bookmark.url;
                                     
                                 $section.append( $link );
                             } );
