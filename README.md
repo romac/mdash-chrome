@@ -2,7 +2,7 @@
 
 **mdash** is a lightweight Chrome extension which aims to replace the **New Tab** page with a light dashboard linked with your bookmarks.  
 
-<img src="http://f.cl.ly/items/262G2o2h2b1t011M2v1A/dashboard.png" alt="Dashboard" width="800" />
+<img src="http://f.cl.ly/items/3H2K273T191W0D0N1v3M/dashboard-v0.2.png" alt="Dashboard" width="800" />
 
 # Installation
 
