@@ -33,10 +33,19 @@
                         {
                             bookmarks.forEach( function( bookmark )
                             {
-                                var $link           = $( '<a>' + bookmark.title + '</a>' );
-                                    $link[ 0 ].id   = bookmark.id;
-                                    $link[ 0 ].href = bookmark.url;
-                                    
+                                var $link = $( '<a>' + bookmark.title + '</a>' );
+                                    $link.attr( {
+                                        id : bookmark.id,
+                                        href: bookmark.url
+                                    } ),
+                                    console.log( $link[ 0 ].origin );
+                                var $img = $( '<img />' );
+                                    $img.attr( {
+                                        src: 'http://www.google.com/s2/favicons?domain=' + $link[ 0 ].host,
+                                        alt: bookmark.title
+                                    } );
+                                
+                                $link.prepend( $img );
                                 $section.append( $link );
                             } );
                         }
