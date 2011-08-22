@@ -1,6 +1,6 @@
-# —dash
+# mdash
 
-**—dash** is a tiny Chrome extension which aims to replace the **New Tab** page with a light dashboard linked with your bookmarks.  
+**mdash** is a tiny Chrome extension which aims to replace the **New Tab** page with a light dashboard linked with your bookmarks.  
 
 <img src="http://f.cl.ly/items/262G2o2h2b1t011M2v1A/dashboard.png" alt="Dashboard" width="800" />
 
@@ -56,4 +56,4 @@ Many thanks to [Pascal Wicht](http://twitter.com/pascal_enigma) who allowed me t
 
 # License
 
-**—dash** is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
+**mdash** is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
