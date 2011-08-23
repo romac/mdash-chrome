@@ -60,5 +60,5 @@
 
 } )( this, chrome, this.Dashboard = this.Dashboard || {} );
 
-var $c = $( '#container' ), $s;
+var $c = $( '#bookmarks' ), $s;
 

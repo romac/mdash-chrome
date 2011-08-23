@@ -5,7 +5,7 @@ var Zepto = (function() {
     elementDisplay = {}, classCache = {},
     getComputedStyle = document.defaultView.getComputedStyle,
     fragmentRE = /^\s*<[^>]+>/,
-    container = document.createElement('div');
+    bookmarks = document.createElement('div');
 
   function isF(value) { return ({}).toString.call(value) == "[object Function]" }
   function isO(value) { return value instanceof Object }
@@ -35,8 +35,8 @@ var Zepto = (function() {
   }
 
   function fragment(html) {
-    container.innerHTML = ('' + html).trim();
-    return slice.call(container.childNodes);
+    bookmarks.innerHTML = ('' + html).trim();
+    return slice.call(bookmarks.childNodes);
   }
 
   function Z(dom, selector){

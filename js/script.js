@@ -7,14 +7,14 @@
     
     m.initialize( function()
     {
-        var v = new d.View( $( '#container' ), m );
+        var v = new d.View( $( '#bookmarks' ), m );
         
         v.display();
         
         $( '.plus' ).bind( 'click', function( e )
         {
             var $target = $( e.target ),
-                $col    = $( '#container' ).find( $target.data( 'el' ) );
+                $col    = $( '#bookmarks' ).find( $target.data( 'el' ) );
                 
             
         } );

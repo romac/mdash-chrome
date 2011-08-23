@@ -24,7 +24,7 @@ body {
     padding:                    0px 0px 0px 20px;
 }
 
-#container > .left {
+#bookmarks > .left {
     position:                   fixed;
     float:                      left;
     width:                      49%;
@@ -32,14 +32,14 @@ body {
     padding:                    0px 0px 0px 0px;
 }
 
-#container > .right {
+#bookmarks > .right {
     float:                      right;
     width:                      49%;
     margin:                     0px 0px 0px 30px;
     padding:                    0px 0px 60px 0px;
 }
 
-#container > .left, #container > .right {
+#bookmarks > .left, #bookmarks > .right {
     
 }
 
