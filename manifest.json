@@ -1,6 +1,6 @@
 {
     "name"           : "—dash",
-    "version"        : "0.2",
+    "version"        : "0.3",
     "description"    : "A minimal dashboard replacing the \"New Tab\" page which syncs with your bookmarks.",
     "icons": {
         "16": "img/favicon.ico"
