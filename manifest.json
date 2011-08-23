@@ -10,5 +10,6 @@
     ],
     "chrome_url_overrides" : {
         "newtab" : "html/dashboard.html"
-    }
+    },
+    "update_url" : "http://romac.me/mdash/updates.xml"
 }
