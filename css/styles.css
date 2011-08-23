@@ -24,6 +24,10 @@ body {
     padding:                    0px 0px 0px 20px;
 }
 
+body.large  { font-size:         16px; }
+body.medium { font-size:         14px; }
+body.small  { font-size:         12px; }
+
 #bookmarks > .left {
     position:                   fixed;
     float:                      left;
