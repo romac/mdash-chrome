@@ -37,8 +37,8 @@
                                     $link.attr( {
                                         id : bookmark.id,
                                         href: bookmark.url
-                                    } ),
-                                    console.log( $link[ 0 ].origin );
+                                    } );
+                                    
                                 var $img = $( '<img />' );
                                     $img.attr( {
                                         src: 'http://www.google.com/s2/favicons?domain=' + $link[ 0 ].host,
