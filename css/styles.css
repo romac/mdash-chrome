@@ -41,6 +41,8 @@ a:hover {
     display:                    block;
     text-shadow:                0px 1px 0px #FFF;
     width:                      50%;
+    font-size:                  1.1em;
+    margin:                     5em auto;
 }
 
 #getstarted > h1 {
