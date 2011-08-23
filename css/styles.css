@@ -28,6 +28,56 @@ body.large  { font-size:         16px; }
 body.medium { font-size:         14px; }
 body.small  { font-size:         12px; }
 
+a {
+    color:                      #365aba;
+    text-decoration:            none;
+}
+
+a:hover {
+    color:                      #365aba;
+}
+
+#getstarted {
+    display:                    block;
+    text-shadow:                0px 1px 0px #FFF;
+    width:                      50%;
+}
+
+#getstarted > h1 {
+    color:                      #666;
+    margin-bottom:              5px;
+}
+
+#getstarted a {
+    font-weight:                bold;
+}
+
+#getstarted a:hover {
+    color:                      #666;
+}
+
+#getstarted > section {
+    display:                    block;
+    text-decoration:            none;
+    font-size:                  0.9em;
+    font-weight:                normal;
+    letter-spacing:             0.1em;
+    line-height:                1.4;
+    background-color:           #FFFFFF;
+    border-radius:              6px 6px 6px 6px;
+    box-shadow:                 0 1px 3px #CCCCCC;
+    padding:                    10px;
+    margin:                     2px 6px 6px 2px;
+}
+
+#getstarted p {
+    margin-top:                 0px;
+}
+
+#bookmarks {
+    display:                    none;
+}
+
 #bookmarks > .left {
     position:                   fixed;
     float:                      left;
@@ -43,28 +93,17 @@ body.small  { font-size:         12px; }
     padding:                    0px 0px 60px 0px;
 }
 
-#bookmarks > .left, #bookmarks > .right {
-    
-}
+#bookmarks > .left, #bookmarks > .right {}
 
-section {
+#bookmarks section {
     clear:                      both;
     padding:                    8px 0px 0px 0px;
 }
 
-h1 {
+#bookmarks h1 {
     font-size:                  0.9em;
     color:                      #666666;
     font-weight:                bold;
-}
-
-a {
-    color:                      #365aba;
-    text-decoration:            none;
-}
-
-a:hover {
-    color:                      #365aba;
 }
 
 #bookmarks a {
@@ -88,7 +127,6 @@ a:hover {
 
 #bookmarks a:hover {
     background-color:           #b6c5ef;
-    
 }
 
 #bookmarks a > img {
@@ -98,8 +136,12 @@ a:hover {
 
 #controls {
     position:                   absolute;
-    left:                       10px;
-    bottom:                     5px;
+    top:                        5px;
+    right:                      10px;
+}
+
+#controls a {
+    font-size:                  14px;
 }
 
 #controls a:hover, #controls a.selected {
