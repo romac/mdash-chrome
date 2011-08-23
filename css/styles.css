@@ -24,7 +24,11 @@ body {
     padding:                    0px 0px 0px 20px;
 }
 
-#container > .left {
+body.large  { font-size:         16px; }
+body.medium { font-size:         14px; }
+body.small  { font-size:         12px; }
+
+#bookmarks > .left {
     position:                   fixed;
     float:                      left;
     width:                      49%;
@@ -32,14 +36,14 @@ body {
     padding:                    0px 0px 0px 0px;
 }
 
-#container > .right {
+#bookmarks > .right {
     float:                      right;
     width:                      49%;
     margin:                     0px 0px 0px 30px;
     padding:                    0px 0px 60px 0px;
 }
 
-#container > .left, #container > .right {
+#bookmarks > .left, #bookmarks > .right {
     
 }
 
@@ -49,12 +53,21 @@ section {
 }
 
 h1 {
-    font-size:                  13px;
+    font-size:                  0.9em;
     color:                      #666666;
     font-weight:                bold;
 }
 
 a {
+    color:                      #365aba;
+    text-decoration:            none;
+}
+
+a:hover {
+    color:                      #365aba;
+}
+
+#bookmarks a {
     display:                    block;
     text-decoration:            none;
     font-size:                  0.9em;
@@ -65,21 +78,30 @@ a {
     background-color:           #FFFFFF;
     border-radius:              6px 6px 6px 6px;
     box-shadow:                 0 1px 3px #CCCCCC;
-    width:                      135px;
-    height:                     70px;
+    width:                      9.5em;
+    height:                     4em;
     padding:                    10px 5px 5px 7px;
     margin:                     2px 6px 6px 2px;
-    color:                      #365aba;
     overflow:                   hidden;
     text-overflow:              ellipsis;
 }
 
-a:hover {
+#bookmarks a:hover {
     background-color:           #b6c5ef;
-    color:                      #365aba;
+    
 }
 
-a > img {
+#bookmarks a > img {
     margin-right: 5px;
     margin-bottom: -3px;
+}
+
+#controls {
+    position:                   absolute;
+    left:                       10px;
+    bottom:                     5px;
+}
+
+#controls a:hover, #controls a.selected {
+    text-decoration:            underline;
 }
