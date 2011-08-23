@@ -50,10 +50,10 @@ Browse any website you would like to add to the dashboard and click the star at 
 - Add a bookmark/section straight from the dashboard.
 - Skins and maybe themes.
 
-# Thanks
-
-Many thanks to [Pascal Wicht](http://twitter.com/pascal_enigma) who allowed me to turn his static HTML dashboard into a Chrome extension. Kudos to him for the design too.
-
 # License
 
 **mdash** is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
+
+---
+
+Brought to you with love by [@P45C4L](http://twitter.com/P45C4L) and [@_romac](http://twitter.com/_romac).
