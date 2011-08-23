@@ -46,9 +46,26 @@
     
     d.initView = function()
     {
-        this.view = new d.View( $( '#bookmarks' ), this.manager );
+        var self = this;
         
-        this.view.display();
+        this.manager.hasBookmarks( function( hasBoomarks )
+        {
+            if( hasBoomarks )
+            {
+                self.view = new d.View( $( '#bookmarks' ), self.manager );
+                self.view.display();
+            }
+            else
+            {
+                self.showGetStarted();
+            }
+        } );
+    };
+    
+    d.showGetStarted = function()
+    {
+        $( '#getstarted' ).show();
+        $( '#bookmarks' ).hide();
     };
     
     d.init();

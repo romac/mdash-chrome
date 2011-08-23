@@ -12,7 +12,7 @@
     Manager.prototype = {
         
         folderName  : '[Dashboard]',
-        placeHolder : '[DO_NOT_DELETE]',
+        placeHolder : '[MDASH_DO_NOT_DELETE]',
         
         initialize : function( callback )
         {
@@ -42,6 +42,16 @@
                     }
                 }
             );
+        },
+        
+        hasBookmarks : function( callback )
+        {
+            var self = this;
+            
+            this.getSections( function( sections )
+            {
+                callback( !!sections.length );
+            } );
         },
         
         getSections : function( callback )
