@@ -54,7 +54,7 @@ h1 {
     font-weight:                bold;
 }
 
-a {
+#bookmarks a {
     display:                    block;
     text-decoration:            none;
     font-size:                  0.9em;
@@ -74,12 +74,12 @@ a {
     text-overflow:              ellipsis;
 }
 
-a:hover {
+#bookmarks a:hover {
     background-color:           #b6c5ef;
     color:                      #365aba;
 }
 
-a > img {
+#bookmarks a > img {
     margin-right: 5px;
     margin-bottom: -3px;
 }
