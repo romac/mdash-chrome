@@ -54,6 +54,15 @@ h1 {
     font-weight:                bold;
 }
 
+a {
+    color:                      #365aba;
+    text-decoration:            none;
+}
+
+a:hover {
+    color:                      #365aba;
+}
+
 #bookmarks a {
     display:                    block;
     text-decoration:            none;
@@ -69,17 +78,26 @@ h1 {
     height:                     4em;
     padding:                    10px 5px 5px 7px;
     margin:                     2px 6px 6px 2px;
-    color:                      #365aba;
     overflow:                   hidden;
     text-overflow:              ellipsis;
 }
 
 #bookmarks a:hover {
     background-color:           #b6c5ef;
-    color:                      #365aba;
+    
 }
 
 #bookmarks a > img {
     margin-right: 5px;
     margin-bottom: -3px;
+}
+
+#controls {
+    position:                   absolute;
+    left:                       10px;
+    bottom:                     5px;
+}
+
+#controls a:hover, #controls a.selected {
+    text-decoration:            underline;
 }
