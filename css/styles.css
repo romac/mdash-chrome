@@ -128,9 +128,9 @@ a:hover {
 }
 
 #bookmarks a > img {
-    margin-right: 5px;
-    margin-bottom: -3px;
-    width: 1.15em;
+    margin-right:               5px;
+    margin-bottom:              -3px;
+    width:                      1.15em;
 }
 
 #controls {
