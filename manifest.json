@@ -6,7 +6,8 @@
         "16": "img/favicon.ico"
     },
     "permissions": [
-        "bookmarks"
+        "bookmarks",
+        "chrome://favicon/*"
     ],
     "chrome_url_overrides" : {
         "newtab" : "html/dashboard.html"
