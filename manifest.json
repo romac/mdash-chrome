@@ -1,5 +1,5 @@
 {
-    "name"           : "—dash",
+    "name"           : "mdash",
     "version"        : "0.4.3",
     "description"    : "A minimal dashboard replacing the \"New Tab\" page which syncs with your bookmarks.",
     "icons": {
