@@ -41,7 +41,7 @@
                                     
                                 var $img = $( '<img />' );
                                     $img.attr( {
-                                        src: 'http://www.google.com/s2/favicons?domain=' + $link[ 0 ].host,
+                                        src: 'chrome://favicon/' + $link[ 0 ].origin,
                                         alt: bookmark.title
                                     } );
                                 

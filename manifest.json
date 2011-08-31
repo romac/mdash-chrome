@@ -1,12 +1,13 @@
 {
-    "name"           : "—dash",
-    "version"        : "0.4.2",
+    "name"           : "mdash",
+    "version"        : "0.4.3",
     "description"    : "A minimal dashboard replacing the \"New Tab\" page which syncs with your bookmarks.",
     "icons": {
         "16": "img/favicon.ico"
     },
     "permissions": [
-        "bookmarks"
+        "bookmarks",
+        "chrome://favicon/*"
     ],
     "chrome_url_overrides" : {
         "newtab" : "html/dashboard.html"

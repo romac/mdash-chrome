@@ -6,6 +6,12 @@
 
 # Installation
 
+## Latest 'stable' version (packed)
+
+1. [Download the latest packed version of the extension](https://github.com/romac/mdash/downloads)  
+2. Allow Chrome to download the .crx file by clicking **Continue** in the download bar.  
+3. Install the extension by clicking **Install** in the pop-up window.
+
 ## Latest version (from source)
 
 1. Clone the repository.  
@@ -14,12 +20,6 @@
 3. Toggle the **Developer mode**.  
 4. Click **Load unpacked extension...**  
 5. Select the previously cloned repository.  
-
-## Latest 'stable' version (packed)
-
-1. [Download the latest packed version of the extension](https://github.com/romac/mdash/downloads)  
-2. Uncompress the archive.  
-3. Drop the .crx file onto Chrome.  
 
 # Usage
 

@@ -128,14 +128,19 @@ a:hover {
 }
 
 #bookmarks a > img {
-    margin-right: 5px;
-    margin-bottom: -3px;
+    margin-right:               5px;
+    margin-bottom:              -3px;
+    width:                      1.15em;
 }
 
 #controls {
     position:                   absolute;
     top:                        5px;
     right:                      10px;
+}
+
+#controls > div {
+    display: inline;
 }
 
 #controls a {

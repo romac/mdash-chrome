@@ -2,12 +2,12 @@
 ( function( $, d, undefined )
 {
     
-    
     d._ = window.console.debug.bind( window.console );
     
     d.init = function()
     {
         d.initFontSize();
+        d.initHelp();
         d.initManager();
     };
     
@@ -57,15 +57,26 @@
             }
             else
             {
-                self.showGetStarted();
+                self.showHelp();
             }
         } );
     };
     
-    d.showGetStarted = function()
+    d.initHelp = function()
+    {
+        $( '#help' ).bind( 'click', d.toggleHelp.bind( d ) );
+    };
+    
+    d.showHelp = function()
     {
         $( '#getstarted' ).show();
         $( '#bookmarks' ).hide();
+    };
+    
+    d.toggleHelp = function()
+    {
+        $( '#getstarted' ).toggle();
+        $( '#bookmarks' ).toggle();
     };
     
     d.init();
