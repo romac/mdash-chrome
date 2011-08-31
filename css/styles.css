@@ -139,6 +139,10 @@ a:hover {
     right:                      10px;
 }
 
+#controls > div {
+    display: inline;
+}
+
 #controls a {
     font-size:                  14px;
 }
