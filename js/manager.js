@@ -27,7 +27,7 @@
         } );
     };
     
-    proto.getBookmarks = function( callback )
+    proto.fetchSections = function( callback )
     {
         var _this = this;
         
@@ -46,13 +46,52 @@
                 {
                     delete children[ i ];
                     
-                    return false;
+                    return;
                 }
+                
+                var firstChar = b.title.substring( 0, 1 );
+                
+                if( firstChar === '+' )
+                {
+                    b.side = 'left';
+                }
+                else if( firstChar === '-' )
+                {
+                    b.side = 'right';
+                }
+                else
+                {
+                    delete children[ i ];
+                    
+                    return;
+                }
+                
+                b.title = b.title.substring( 1 );
             } );
             
             _this.folder.children = children;
             
             callback( children );
+        } );
+    };
+    
+    proto.getSections = function( side, callback )
+    {
+        side = side || 'left';
+        
+        this.fetchSections( function( sections )
+        {
+            var results = [];
+            
+            sections.forEach( function( section )
+            {
+                if( section.side === side )
+                {
+                    results.push( section );
+                }
+            } );
+            
+            callback( results );
         } );
     };
     
