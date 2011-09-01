@@ -24,7 +24,6 @@
         this.manager.init( this.loadBookmarks.bind( this ) );
         
         this.showVersion();
-        this.loadBookmarks();
     };
     
     proto.loadBookmarks = function()
@@ -33,7 +32,7 @@
         
         this.leftColumn  = new mdash.Column( $( '#bookmarks > .left' ) );
         this.rightColumn = new mdash.Column( $( '#bookmarks > .right' ) );
-            
+        
         this.manager.getSections( 'left', function( sections )
         {
             _this.leftColumn.sections = sections;
