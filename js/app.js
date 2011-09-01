@@ -1,84 +1,34 @@
 
-( function( $, d, undefined )
+( function( mdash, $ )
 {
     
-    d._ = window.console.debug.bind( window.console );
-    
-    d.init = function()
+    $( document ).ready( function()
     {
-        d.initFontSize();
-        d.initHelp();
-        d.initManager();
-    };
-    
-    d.initManager = function()
-    {
-        this.manager = new d.Manager();
+        var manager  = new mdash.Manager(),
+            fontCtrl = new mdash.FontCtrl( $( '#fontctrl > a' ) ),
+            helpCtrl = new mdash.HelpCtrl( $( '#helpctrl' ), $( '#getstarted' ), $( '#bookmarks' ) );
         
-        this.manager.initialize( this.initView.bind( this ) );
-    };
-    
-    d.initFontSize = ( function()
-    {
-        var $sizes = $( '#fontSize > a' );
-        
-        return function()
+        manager.init( function()
         {
-            if( localStorage.fontSize )
-            {
-                document.body.className = localStorage.fontSize;
-                
-                $sizes.removeClass( 'selected' );
-                $sizes.parent().find( 'a[data-size="' + localStorage.fontSize + '"]' ).addClass( 'selected' );
-            }
+            fontCtrl.init();
+            helpCtrl.init();
             
-            $sizes.bind( 'click', function( e )
+            var leftColumn  = new mdash.Column( $( '#bookmarks > .left' ) ),
+                rightColumn = new mdash.Column( $( '#bookmarks > .right' ) );
+                
+            manager.getSections( 'left', function( sections )
             {
-                var $this = $( e.target );
-                
-                $this.siblings().removeClass( 'selected' );
-                $this.addClass( 'selected' );
-                
-                document.body.className = localStorage.fontSize = $this.attr( 'data-size' );
+                leftColumn.sections = sections;
+                leftColumn.render();
             } );
-        }
-    } )();
-    
-    d.initView = function()
-    {
-        var self = this;
-        
-        this.manager.hasBookmarks( function( hasBoomarks )
-        {
-            if( hasBoomarks )
+            
+            manager.getSections( 'right', function( sections )
             {
-                self.view = new d.View( $( '#bookmarks' ), self.manager );
-                self.view.display();
-            }
-            else
-            {
-                self.showHelp();
-            }
+                rightColumn.sections = sections;
+                rightColumn.render();
+            } );
         } );
-    };
+        
+    } );
     
-    d.initHelp = function()
-    {
-        $( '#help' ).bind( 'click', d.toggleHelp.bind( d ) );
-    };
-    
-    d.showHelp = function()
-    {
-        $( '#getstarted' ).show();
-        $( '#bookmarks' ).hide();
-    };
-    
-    d.toggleHelp = function()
-    {
-        $( '#getstarted' ).toggle();
-        $( '#bookmarks' ).toggle();
-    };
-    
-    d.init();
-    
-} )( Zepto, this.Dashboard );
+} )( window.mdash, Zepto );
