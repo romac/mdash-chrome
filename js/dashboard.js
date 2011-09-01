@@ -16,8 +16,8 @@
         this.$version    = $( '#version' );
         
         this.manager  = new mdash.Manager(),
-        this.fontCtrl = new mdash.FontCtrl(  ),
-        this.helpCtrl = new mdash.HelpCtrl( $helpCtrl, $getStarted, $bookmarks );
+        this.fontCtrl = new mdash.FontCtrl( this.$fontSizes ),
+        this.helpCtrl = new mdash.HelpCtrl( this.$helpCtrl, this.$getStarted, this.$bookmarks );
         
         this.fontCtrl.init();
         this.helpCtrl.init();
@@ -34,13 +34,13 @@
         this.leftColumn  = new mdash.Column( $( '#bookmarks > .left' ) );
         this.rightColumn = new mdash.Column( $( '#bookmarks > .right' ) );
             
-        manager.getSections( 'left', function( sections )
+        this.manager.getSections( 'left', function( sections )
         {
             _this.leftColumn.sections = sections;
             _this.leftColumn.render();
         } );
         
-        manager.getSections( 'right', function( sections )
+        this.manager.getSections( 'right', function( sections )
         {
             _this.rightColumn.sections = sections;
             _this.rightColumn.render();
