@@ -10,31 +10,27 @@
     
     proto.render = function()
     {
-        var _this = this,
-            html  = '';
+        var _this = this;
+        
+        this.$el.empty();
         
         this.sections.forEach( function( section )
         {
-            html += _this.renderSection( section );
+            _this.$el.append( _this.renderSection( section ) );
         } );
-        
-        this.$el.html( html );
     };
     
     proto.renderSection = function( section )
     {
-        var _this = this,
-            bookmarksHtml = '';
+        var _this    = this,
+            $section = ich.section( { title : section.title } );
         
         section.children.forEach( function( bookmark )
         {
-            bookmarksHtml += _this.renderBookmark( bookmark );
+            $section.append( _this.renderBookmark( bookmark ) );
         } );
         
-        return ich.section( {
-            title     : section.title,
-            bookmarks : bookmarksHtml
-        } );
+        return $section;
     };
     
     proto.renderBookmark = function( bookmark )
@@ -47,7 +43,7 @@
             id      : bookmark.id,
             title   : bookmark.title,
             url     : link.href,
-            favicon : 'chrome://favicon/' + link.href.origin
+            favicon : 'chrome://favicon/' + link.origin
         };
         
         return ich.bookmark( data );
