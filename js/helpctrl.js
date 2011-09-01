@@ -1,8 +1,8 @@
 
-( function( exports )
+( function( mdash )
 {
     
-    var HelpCtrl = exports.HelpCtrl = function( $handle, $help, $interface )
+    var HelpCtrl = mdash.HelpCtrl = function( $handle, $help, $interface )
     {
         this.$handle    = $handle;
         this.$help      = $help;

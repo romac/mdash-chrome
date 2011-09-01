@@ -1,8 +1,8 @@
 
-( function( exports )
+( function( mdash )
 {
     
-    var Manager = exports.Manager = function() {},
+    var Manager = mdash.Manager = function() {},
         proto   = Manager.prototype;
     
     proto.api              = chrome.bookmarks;

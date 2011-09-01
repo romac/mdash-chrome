@@ -1,8 +1,8 @@
 
-( function( exports )
+( function( mdash )
 {
     
-    var FontCtrl = exports.FontCtrl = function( $sizes )
+    var FontCtrl = mdash.FontCtrl = function( $sizes )
     {
         this.$sizes = $sizes;
     };

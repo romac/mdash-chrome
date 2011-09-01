@@ -1,7 +1,7 @@
 
-( function( exports )
+( function( mdash )
 {
-    var Column = exports.Column = function( $el )
+    var Column = mdash.Column = function( $el )
     {
         this.$el      = $el;
         this.sections = null;
