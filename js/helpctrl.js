@@ -11,7 +11,7 @@
     
     HelpCtrl.prototype.init = function()
     {
-        this.$handle.click( this.toggle.bind( this ) );
+        this.$handle.bind( 'click', this.toggle.bind( this ) );
     };
     
     HelpCtrl.prototype.toggle = function()
@@ -32,4 +32,4 @@
         this.$interface.show();
     };
     
-} )( window );
+} )( window.mdash );
