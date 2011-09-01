@@ -53,4 +53,4 @@
         return ich.bookmark( data );
     };
 
-} )( window );
+} )( window.mdash );

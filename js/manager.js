@@ -153,4 +153,4 @@
         this.createPlaceholder = function() { callback() };
     };
     
-} )( window );
+} )( window.mdash );
