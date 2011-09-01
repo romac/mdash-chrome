@@ -17,6 +17,8 @@
         {
             _this.tree = tree[ 0 ];
         } );
+        
+        this.checkRootFolder( callback );
     };
     
     proto.hasBookmarks = function( callback )
@@ -77,11 +79,13 @@
     
     proto.getSections = function( side, callback )
     {
+        var _this = this;
         side = side || 'left';
         
         this.fetchSections( function( sections )
         {
-            var results = [];
+            var results = [],
+                index   = 1;
             
             sections.forEach( function( section )
             {
@@ -91,11 +95,33 @@
                 }
             } );
             
-            callback( results );
+            results.forEach( function( section )
+            {
+                _this.fetchSectionBookmarks( section, function( i )
+                {
+                    return function()
+                    {
+                        if( i === results.length )
+                        {
+                            callback( results );
+                        }
+                    }
+                }( index++ ) );
+            } );
         } );
     };
     
-    proto.rootFolderExists = function( callback )
+    proto.fetchSectionBookmarks = function( section, callback )
+    {
+        this.api.getChildren( section.id, function( bookmarks )
+        {
+            section.children = bookmarks;
+            
+            callback( section.bookmarks );
+        } )
+    };
+    
+    proto.checkRootFolder = function( callback )
     {
         var _this = this;
         
