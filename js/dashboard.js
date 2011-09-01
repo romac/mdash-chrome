@@ -2,33 +2,54 @@
 ( function( mdash, $ )
 {
     
-    $( document ).ready( function()
+    var Dashboard = mdash.Dashboard = function() {},
+        proto     = Dashboard.prototype;
+    
+    Dashboard.VERSION = '0.5.1';
+    
+    proto.init = function()
     {
-        var manager  = new mdash.Manager(),
-            fontCtrl = new mdash.FontCtrl( $( '#fontctrl > a' ) ),
-            helpCtrl = new mdash.HelpCtrl( $( '#helpctrl' ), $( '#getstarted' ), $( '#bookmarks' ) );
+        this.$fontSizes  = $( '#fontctrl > a' );
+        this.$helpCtrl   = $( '#helpctrl' );
+        this.$getStarted = $( '#getstarted' );
+        this.$bookmarks  = $( '#bookmarks' );
+        this.$version    = $( '#version' );
         
-        manager.init( function()
+        this.manager  = new mdash.Manager(),
+        this.fontCtrl = new mdash.FontCtrl(  ),
+        this.helpCtrl = new mdash.HelpCtrl( $helpCtrl, $getStarted, $bookmarks );
+        
+        this.fontCtrl.init();
+        this.helpCtrl.init();
+        this.manager.init( this.loadBookmarks.bind( this ) );
+        
+        this.showVersion();
+        this.loadBookmarks();
+    };
+    
+    proto.loadBookmarks = function()
+    {
+        var _this = this;
+        
+        this.leftColumn  = new mdash.Column( $( '#bookmarks > .left' ) );
+        this.rightColumn = new mdash.Column( $( '#bookmarks > .right' ) );
+            
+        manager.getSections( 'left', function( sections )
         {
-            fontCtrl.init();
-            helpCtrl.init();
-            
-            var leftColumn  = new mdash.Column( $( '#bookmarks > .left' ) ),
-                rightColumn = new mdash.Column( $( '#bookmarks > .right' ) );
-                
-            manager.getSections( 'left', function( sections )
-            {
-                leftColumn.sections = sections;
-                leftColumn.render();
-            } );
-            
-            manager.getSections( 'right', function( sections )
-            {
-                rightColumn.sections = sections;
-                rightColumn.render();
-            } );
+            _this.leftColumn.sections = sections;
+            _this.leftColumn.render();
         } );
         
-    } );
+        manager.getSections( 'right', function( sections )
+        {
+            _this.rightColumn.sections = sections;
+            _this.rightColumn.render();
+        } );
+    };
+    
+    proto.showVersion = function()
+    {
+        this.$version.html( Dashboard.VERSION );
+    };
     
 } )( window.mdash, Zepto );
