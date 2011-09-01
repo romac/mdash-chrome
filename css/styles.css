@@ -150,3 +150,10 @@ a:hover {
 #controls a:hover, #controls a.selected {
     text-decoration:            underline;
 }
+
+#version {
+    font-size:                  0.8em;
+    position:                   fixed;
+    bottom:                     5px;
+    left:                       10px;
+}
