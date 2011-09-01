@@ -157,6 +157,8 @@
             },
             function( folder )
             {
+                delete this.tree;
+                
                 _this.folder = folder;
                 _this.createPlaceholder( callback );
             }
