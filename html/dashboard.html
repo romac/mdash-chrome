@@ -39,18 +39,36 @@
             <div class="right"></div>
         </div>
         <div id="controls">
-            <div id="fontSize">
+            <div id="fontctrl">
                 <a href="#" data-size="small">small</a>
                 <a href="#" data-size="medium">medium</a>
                 <a href="#" data-size="large" class="selected">large</a>
             </div>
             ·
-            <a id="help" href="#">?</a>
+            <a id="helpctrl" href="#">?</a>
         </div>
+        
+        <script id="section" type="text/html">
+        <section>
+            <h1>{{ title }}</h1>
+        </section>
+        </script>
+        <script id="bookmark" type="text/html">
+        <a id="{{ id }}" href="{{ url }}">
+            <img src="{{ favicon }}" alt="{{ title }}" />
+            {{ title }}
+        </a>
+        </script>
+        <script>
+            window.mdash = {};
+        </script>
         <script src="../js/lib/zepto.min.js"></script>
+        <script src="../js/lib/icanhaz.min.js"></script>
         <script src="../js/lib/async.min.js"></script>
-        <script src="../js/view.js"></script>
         <script src="../js/manager.js"></script>
-        <script src="../js/script.js"></script>
+        <script src="../js/column.js"></script>
+        <script src="../js/fontctrl.js"></script>
+        <script src="../js/helpctrl.js"></script>
+        <script src="../js/app.js"></script>
     </body>
 </html>
