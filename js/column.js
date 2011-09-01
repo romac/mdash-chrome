@@ -1,7 +1,7 @@
 
 ( function( exports )
 {
-    var Column = exports.Column = function( $element )
+    var Column = exports.Column = function( $el )
     {
         this.$el      = $el;
         this.sections = null;
