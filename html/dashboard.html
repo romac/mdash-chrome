@@ -47,7 +47,21 @@
             ·
             <a id="help" href="#">?</a>
         </div>
+        
+        <script id="section" type="text/html">
+        <section>
+            <h1>{{ title }}</h1>
+            {{ bookmarks }}
+        </section>
+        </script>
+        <script id="bookmark" type="text/html">
+        <a id="{{ id }}" href="{{ url }}">
+            <img src="{{ favicon }}" alt="{{ title }}" />
+        </a>
+        </script>
+        
         <script src="../js/lib/zepto.min.js"></script>
+        <script src="../js/lib/icanhaz.min.js"></script>
         <script src="../js/lib/async.min.js"></script>
         <script src="../js/view.js"></script>
         <script src="../js/manager.js"></script>
