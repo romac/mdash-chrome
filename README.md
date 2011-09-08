@@ -56,4 +56,5 @@ Browse any website you would like to add to the dashboard and click the star at 
 
 ---
 
-Brought to you with love by [@P45C4L](http://twitter.com/P45C4L) and [@_romac](http://twitter.com/_romac).
+Brought to you with love by [@P45C4L](http://twitter.com/P45C4L) and [@_romac](http://twitter.com/_romac).  
+Many thanks to [@ntzog](http://tzog.ch) for the icon ! It's beautiful, isn't it ?
