@@ -3,9 +3,9 @@
     "version"        : "0.5.2",
     "description"    : "A minimal dashboard replacing the \"New Tab\" page which syncs with your bookmarks.",
     "icons": {
-        "16":  "img/favicon.ico",
-        "48":  "img/icon48.png",
-        "128": "img/icon128.png"
+        "16":  "img/icon-16.png",
+        "48":  "img/icon-48.png",
+        "128": "img/icon-128.png"
     },
     "permissions": [
         "bookmarks",
