@@ -153,7 +153,7 @@
         this.api.create(
             {
                 parentId : this.tree.children[ 1 ].id,
-                title    : this.folderName
+                title    : this.FOLDER_NAME
             },
             function( folder )
             {
@@ -172,7 +172,7 @@
         this.api.create(
             {
                 parentId : folder.id,
-                title    : this.placeHolder,
+                title    : this.PLACEHOLDER_NAME,
                 url      : 'about:blank'
             },
             callback
