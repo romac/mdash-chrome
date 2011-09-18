@@ -171,7 +171,7 @@
     {
         this.api.create(
             {
-                parentId : folder.id,
+                parentId : this.folder.id,
                 title    : this.PLACEHOLDER_NAME,
                 url      : 'about:blank'
             },
