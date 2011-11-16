@@ -52,6 +52,7 @@ a:hover {
 #getstarted > h1 {
     color:                      #666;
     margin-bottom:              5px;
+    margin-left:                10px;
 }
 
 #getstarted a {
