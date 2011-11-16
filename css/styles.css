@@ -1,0 +1,83 @@
+
+@import url( http://fonts.googleapis.com/css?family=Lekton:700&v2 );
+
+body {
+    background:                 #EFEFEF url( bg.png ) top left repeat;
+    font-family:                Helvetica, Arial, serif;
+    margin:                     0px 0px 0px 0px;
+    padding:                    0px 0px 0px 20px;
+    font-size:                  16px;
+    line-height:                1.5;
+}
+
+#container {
+    width:                      800px;
+    margin:                     0 auto;
+}
+
+header, section, article {
+    display: block;
+}
+
+section {
+    background-color:           white;
+    -webkit-border-radius:      10px;
+    -moz-border-radius:         10px;
+    -o-border-radius:           10px;
+    -ms- border-radius:         10px;
+    border-radius:              10px;
+    box-shadow:                 0 1px 3px #CCCCCC;
+    padding:                    20px 30px 15px 30px;
+    margin-bottom:              20px;
+}
+
+a, strong, section > h1, h2 {
+    color:                      #365ABA;
+}
+
+a {
+    text-decoration:            none;
+}
+
+a:hover {
+    color:                      #666;
+}
+
+a > img {
+    border:                     none;
+}
+
+h1, h2 {
+    font-family:                Lekton;
+    text-shadow:                0px 1px 0px #FFF;
+}
+
+h1 {
+    color:                      #666;
+    margin-top:                 20px;
+    margin-bottom:              5px;
+}
+
+h2 {
+    margin-top:                 0;
+    margin-bottom:              5px;
+}
+
+p {
+    margin:                     0;
+}
+
+code {
+    background-color:           #FFF;
+    padding:                    0 10px;
+    font-family:                Monaco, Menlo, monospace;
+    font-size:                  0.9em;
+}
+
+.big {
+    font-size: 1.3em;
+}
+
+p.install {
+    text-align: center;
+}

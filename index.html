@@ -4,86 +4,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta charset="UTF-8" />
         <title>mdash — a lightweight New Tab page alternative for Google Chrome</title>
-        <style>
-            @import url( http://fonts.googleapis.com/css?family=Lekton:700&v2 );
-            
-            body {
-                background:                 #EFEFEF url( bg.png ) top left repeat;
-                font-family:                Helvetica, Arial, serif;
-                margin:                     0px 0px 0px 0px;
-                padding:                    0px 0px 0px 20px;
-                font-size:                  16px;
-                line-height:                1.5;
-            }
-            
-            #container {
-                width:                      800px;
-                margin:                     0 auto;
-            }
-            
-            header, section, article {
-                display: block;
-            }
-            
-            section {
-                background-color:           white;
-                -webkit-border-radius:      10px;
-                -moz-border-radius:         10px;
-                -o-border-radius:           10px;
-                -ms- border-radius:         10px;
-                border-radius:              10px;
-                box-shadow:                 0 1px 3px #CCCCCC;
-                padding:                    20px 30px 15px 30px;
-                margin-bottom:              20px;
-            }
-            
-            a, strong, section > h1, h2 {
-                color:                      #365ABA;
-            }
-            
-            a {
-                text-decoration:            none;
-            }
-            
-            a:hover {
-                color:                      #666;
-            }
-            
-            a > img {
-                border:                     none;
-            }
-            
-            h1, h2 {
-                font-family:                Lekton;
-                text-shadow:                0px 1px 0px #FFF;
-            }
-            
-            h1 {
-                color:                      #666;
-                margin-top:                 20px;
-                margin-bottom:              5px;
-            }
-            
-            h2 {
-                margin-top:                 0;
-                margin-bottom:              5px;
-            }
-            
-            p {
-                margin:                     0;
-            }
-            
-            code {
-                background-color:           #FFF;
-                padding:                    0 10px;
-                font-family:                Monaco, Menlo, monospace;
-                font-size:                  0.9em;
-            }
-            
-            .big {
-                font-size: 1.3em;
-            }
-        </style>
+        <link rel="stylesheet" href="css/button.css" />
+        <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
         <div id="container">
@@ -93,30 +15,35 @@
             <section style="padding-bottom: 0px">
                 <p class="big">
                     <strong>mdash</strong> is a lightweight Chrome extension which aims to replace the <strong>New Tab</strong> page with a light dashboard linked with your bookmarks.
+                    <br /><br />
                 </p>
                 <p>
                     <a href="http://cl.ly/3D3e1w3q233W1u0m3T3L">
                         <img src="http://f.cl.ly/items/3H2K273T191W0D0N1v3M/dashboard-v0.2.png" alt="Dashboard" style="margin-left: -30px" />
                     </a>
                 </p>
+                <p class="install">
+                    <button class="blue-pill">Install the extension</button>
+                    <br /><br />
+                </p>
             </section>
             <h1 id="installation">Installation</h1>
             <section>
-            <h2 id="latest_stable_version_packed">Latest &#8216;stable&#8217; version (packed)</h2>
-            <ol>
-                <li>
-                    <a href="https://github.com/romac/mdash/downloads">Download the latest packed version of the extension</a>
-                </li>
-                <li>
-                    Allow Chrome to download the .crx file by clicking <strong>Continue</strong> in the download bar.
-                </li>
-                <li>
-                    Install the extension by clicking <strong>Install</strong> in the pop-up window.
-                </li>
-            </ol>
+                <h2 id="click_the_above_button">Easy install</h2>
+                <ul>
+                    <li>
+                        Click the big <strong>Install</strong> button above.
+                    </li>
+                    <li>
+                        Allow Chrome to download the .crx file by clicking <strong>Continue</strong> in the download bar.
+                    </li>
+                    <li>
+                        Click the <strong>Install</strong> button in the pop-up window.
+                    </li>
+                </ul>
             </section>
             <section>
-            <h2 id="latest_version_from_source">Latest version (from source)</h2>
+            <h2 id="latest_version_from_source">Install latest version (from source)</h2>
             <ol>
                 <li>
                     Clone the repository. <br />
