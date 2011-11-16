@@ -30,6 +30,14 @@
             $section.append( _this.renderBookmark( bookmark ) );
         } );
         
+        $section.append( ich.bookmark( {
+            id        : ( this.sections.length + 1 ) + '-section-add',
+            className : 'add',
+            title     : '+',
+            url       : '#add',
+            favicon   : 'chrome://favicon/default'
+        } ) );
+        
         return $section;
     };
     
@@ -43,7 +51,7 @@
             id      : bookmark.id,
             title   : bookmark.title,
             url     : link.href,
-            favicon : 'chrome://favicon/' + link.origin
+            favicon : bookmark.favicon ? bookmark.favicon : 'chrome://favicon/' + link.origin
         };
         
         return ich.bookmark( data );

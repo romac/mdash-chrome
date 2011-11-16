@@ -138,6 +138,37 @@ a:hover {
     width:                      1.15em;
 }
 
+#bookmarks a.add {
+    opacity:                    0.7;
+    background-color:           #F1F1F1;
+    display:                    -webkit-box;
+    -webkit-box-orient:         vertical;
+    -webkit-box-pack:           center;
+    -webkit-box-align:          center;
+    color:                      #CDCDCD;
+    width:                      2.13em;
+    height:                     0.9em;
+    line-height:                0.9;
+    font-size:                  4em;
+    font-weight:                bold;
+    text-shadow:                0px 1px #FFF;
+    display:                    none;
+}
+
+#bookmarks.edit a.add {
+    display:                    -webkit-box;
+}
+
+#bookmarks a.add:hover {
+    opacity:                    1;
+    background-color:           #DDD;
+    color:                      #AAA;
+}
+
+#bookmarks a.add img {
+    display:                    none;
+}
+
 #controls {
     position:                   absolute;
     top:                        5px;

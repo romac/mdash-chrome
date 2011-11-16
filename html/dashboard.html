@@ -42,6 +42,10 @@
             <div class="right"></div>
         </div>
         <div id="controls">
+            <div id="editctrl">
+                <a id="edit" href="#">edit</a>
+            </div>
+            ·
             <div id="fontctrl">
                 <a href="#" data-size="small">small</a>
                 <a href="#" data-size="medium">medium</a>
@@ -57,7 +61,7 @@
         </section>
         </script>
         <script id="bookmark" type="text/html">
-        <a id="{{ id }}" href="{{ url }}">
+        <a id="{{ id }}" href="{{ url }}" class="{{ className }}">
             <img src="{{ favicon }}" alt="{{ title }}" />
             {{ title }}
         </a>
@@ -72,6 +76,7 @@
         <script src="../js/column.js"></script>
         <script src="../js/fontctrl.js"></script>
         <script src="../js/helpctrl.js"></script>
+        <script src="../js/editctrl.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="../js/app.js"></script>
     </body>
