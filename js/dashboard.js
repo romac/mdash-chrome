@@ -22,8 +22,6 @@
         this.fontCtrl.init();
         this.helpCtrl.init();
         this.manager.init( this.loadBookmarks.bind( this ) );
-        
-        this.showVersion();
     };
     
     proto.loadBookmarks = function()
@@ -44,11 +42,6 @@
             _this.rightColumn.sections = sections;
             _this.rightColumn.render();
         } );
-    };
-    
-    proto.showVersion = function()
-    {
-        this.$version.html( Dashboard.VERSION );
     };
     
 } )( window.mdash, Zepto );
