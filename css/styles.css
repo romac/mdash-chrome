@@ -81,3 +81,9 @@ code {
 p.install {
     text-align: center;
 }
+
+#lang {
+    float: right;
+    margin-top: -30px;
+    margin-right: 10px;
+}

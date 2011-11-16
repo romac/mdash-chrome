@@ -6,16 +6,19 @@
         <title>mdash — a lightweight New Tab page alternative for Google Chrome</title>
         <link rel="stylesheet" href="css/button.css" />
         <link rel="stylesheet" href="css/styles.css" />
+        <link rel="alternate" hreflang="fr" href="http://romac.me/mdash/fr/" />
     </head>
     <body>
         <div id="container">
             <header>
                 <h1 id="mdash">mdash</h1>
+                <nav id="lang" role="language">
+                    <a href="fr/">Français</a>
+                </nav>
             </header>
             <section style="padding-bottom: 0px">
                 <p class="big">
                     <strong>mdash</strong> is a lightweight Chrome extension which aims to replace the <strong>New Tab</strong> page with a light dashboard linked with your bookmarks.
-                    <br /><br />
                 </p>
                 <p>
                     <a href="http://cl.ly/3D3e1w3q233W1u0m3T3L">
@@ -41,27 +44,6 @@
                         Click the <strong>Install</strong> button in the pop-up window.
                     </li>
                 </ul>
-            </section>
-            <section>
-            <h2 id="latest_version_from_source">Install latest version (from source)</h2>
-            <ol>
-                <li>
-                    Clone the repository. <br />
-                    <code>$ git clone https://romac@github.com/romac/mdash.git</code>
-                </li>
-                <li>
-                    Open Chrome and go to <code>chrome://extensions</code>
-                </li>
-                <li>
-                    Toggle the <strong>Developer mode</strong>.
-                </li>
-                <li>
-                    Click <strong>Load unpacked extension&#8230;</strong>
-                </li>
-                <li>
-                    Select the previously cloned repository.
-                </li>
-            </ol>
             </section>
             <h1 id="usage">Usage</h1>
             <section>
@@ -100,9 +82,8 @@
             <section>
             <h1 id="planned_features" style="margin-top: 0">Planned features</h1>
             <ul>
-                <li>Drag bookmarks around to re-order them or put them in another section.</li>
                 <li>Add a bookmark/section straight from the dashboard.</li>
-                <li>Skins and maybe themes.</li>
+                <li>Drag bookmarks around to re-order them or put them in another section.</li>
             </ul>
             <h1 id="credits">Credits</h1>
             <p>
@@ -127,17 +108,6 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
-        </script>
-        <script type="text/javascript">
-        var clicky_site_ids = clicky_site_ids || [];
-        clicky_site_ids.push(66468117);
-        (function() {
-          var s = document.createElement('script');
-          s.type = 'text/javascript';
-          s.async = true;
-          s.src = '//static.getclicky.com/js';
-          ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
-        })();
         </script>
     </body>
 </html>
