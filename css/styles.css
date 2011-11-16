@@ -18,10 +18,14 @@
 
 body {
     background:                 #EFEFEF url( ../img/bg.png ) repeat top left;
-    font-family:                Lekton, Arial, serif;
+    font-family:                Lekton, Helvetica, Arial, sans-serif;
     color:                      #365aba;
     margin:                     0px 0px 0px 0px;
     padding:                    0px 0px 0px 20px;
+}
+
+.win body {
+    font-family:                Arial, sans-serif;
 }
 
 body.large  { font-size:         16px; }
