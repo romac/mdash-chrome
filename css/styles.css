@@ -101,6 +101,8 @@ a:hover {
 #bookmarks section {
     clear:                      both;
     padding:                    8px 0px 0px 0px;
+    height:                     auto;
+    overflow:                   hidden;
 }
 
 #bookmarks h1 {
@@ -155,7 +157,7 @@ a:hover {
     display:                    none;
 }
 
-#bookmarks.edit a.add {
+/* #bookmarks section:hover a.add, */ #bookmarks.edit a.add {
     display:                    -webkit-box;
 }
 
