@@ -54,13 +54,22 @@
         this.api.remove( id, function()
         {
             $link.addClass( 'removed' );
-            mdash.Growl.show( 'Bookmark ' + $link.text() + ' has been removed.' );
+            mdash.Growl.show( 'Bookmark ' + $link.find( 'span' ).text() + ' has been removed.' );
         } );
     };
     
     EditCtrl.prototype.rename = function( info, tab )
     {
-        console.debug( info );
+        var id, $link = $( mdash.links[ info.linkUrl ] );
+        
+        if( !$link || !( id = $link.attr( 'id' ) ) ) return;
+        
+        var newTitle = prompt( 'Enter a new title: ' );
+        
+        this.api.update( id, { title: newTitle }, function()
+        {
+            $link.find( 'span' ).text( newTitle );
+        } );
     };
     
     EditCtrl.prototype.reload = function()
