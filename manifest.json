@@ -9,7 +9,8 @@
     },
     "permissions": [
         "bookmarks",
-        "chrome://favicon/*"
+        "chrome://favicon/*",
+        "contextMenus"
     ],
     "chrome_url_overrides" : {
         "newtab" : "html/dashboard.html"

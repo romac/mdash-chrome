@@ -1,6 +1,9 @@
 
 ( function( mdash )
 {
+    
+    mdash.links = {};
+    
     var Column = mdash.Column = function( $el )
     {
         this.$el      = $el;
@@ -27,16 +30,22 @@
         
         section.children.forEach( function( bookmark )
         {
-            $section.append( _this.renderBookmark( bookmark ) );
+            var $link = _this.renderBookmark( bookmark );
+            $section.append( $link );
+            mdash.links[ $link.attr( 'href' ) ] = $link;
         } );
         
-        $section.append( ich.bookmark( {
+        var $addBtn = ich.bookmark( {
             id        : ( this.sections.length + 1 ) + '-section-add',
             className : 'add',
             title     : '+',
             url       : '#add',
             favicon   : 'chrome://favicon/default'
-        } ) );
+        } );
+        
+        $section.append( $addBtn );
+        $section.data.addBtn = new mdash.AddBtn( $addBtn );
+        $section.data.addBtn.init();
         
         return $section;
     };

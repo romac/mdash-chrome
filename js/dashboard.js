@@ -24,6 +24,7 @@
         this.fontCtrl.init();
         this.helpCtrl.init();
         this.editCtrl.init();
+        
         this.manager.init( this.loadBookmarks.bind( this ) );
     };
     
