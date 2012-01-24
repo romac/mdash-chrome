@@ -140,6 +140,11 @@ a:hover {
     width:                      1.15em;
 }
 
+#bookmarks a.removed {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+}
+
 #bookmarks a.add {
     opacity:                    0.7;
     background-color:           #F1F1F1;

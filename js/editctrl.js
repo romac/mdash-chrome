@@ -1,5 +1,5 @@
 
-( function( mdash )
+( function( mdash, $ )
 {
     
     var EditCtrl = mdash.EditCtrl = function( $btn, $bookmarks )
@@ -47,13 +47,26 @@
     
     EditCtrl.prototype.remove = function( info, tab )
     {
-        var $link = mdash.links[ info.linkUrl ];
+        var id, $link = $( mdash.links[ info.linkUrl ] );
+        
+        if( !$link || !( id = $link.attr( 'id' ) ) ) return;
+        
+        this.api.remove( id, function()
+        {
+            $link.addClass( 'removed' );
+            mdash.Growl.show( 'Bookmark ' + $link.text() + ' has been removed.' );
+        } );
     };
     
     EditCtrl.prototype.rename = function( info, tab )
     {
         console.debug( info );
-    }
+    };
+    
+    EditCtrl.prototype.reload = function()
+    {
+      window.location = window.location;
+    };
     
     EditCtrl.prototype.toggleEdit = function( e )
     {
@@ -63,4 +76,4 @@
         this.$btn.html( this.$bookmarks.hasClass( 'edit' ) ? 'done' : 'edit' );
     };
     
-} )( window.mdash );
+} )( window.mdash, Zepto );
