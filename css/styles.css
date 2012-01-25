@@ -184,8 +184,8 @@ a:hover {
     display:                    none;
 }
 
-/* #bookmarks section:hover a.add, */ #bookmarks.edit a.add {
-    display:                    -webkit-box;
+#bookmarks.edit a.add {
+/*    display:                    -webkit-box;*/
 }
 
 #bookmarks a.add:hover {
