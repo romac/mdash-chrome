@@ -50,6 +50,16 @@ Browse any website you would like to add to the dashboard and click the star at 
 - Add a bookmark/section straight from the dashboard.
 - Skins and maybe themes.
 
+# Changelog
+
+**Version 0.6.2** - Little UX improvement  
+**Version 0.6.1** - Implement bookmarks edition  
+**Version 0.5.4** - Cosmetic improvements  
+**Version 0.5.3** - Bugfix  
+**Version 0.5.2** - Icons  
+**Version 0.5.0** - Rewritten from scratch  
+**Version 0.1.0** - First public version  
+
 # License
 
 **mdash** is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
