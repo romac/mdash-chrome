@@ -4,18 +4,41 @@
     
     var EditCtrl = mdash.EditCtrl = function( $btn, $bookmarks )
     {
+        this.$doc       = $( document.documentElement );
         this.$btn       = $btn;
         this.$bookmarks = $bookmarks;
         this.api        = chrome.bookmarks;
+        this.altPressed = false;
     };
     
     EditCtrl.prototype.init = function()
     {
-        this.$btn.bind( 'click', this.toggleEdit.bind( this ) );
-        
+        var self = this;
         this.removeContextMenus();
+        
+        this.$btn.bind( 'click', this.toggleEdit.bind( this ) );
     };
     
+    EditCtrl.prototype.listenForAlt = function()
+    {
+        var $win = $( window ), self = this;
+        
+        $win.bind( 'keydown', function( e )
+        {
+            if( e.keyIdentifier === 'Alt' )
+            {
+                self.$doc.addClass( 'alt' );
+            }
+        } );
+        
+        $win.bind( 'keyup', function( e )
+        {
+            if( e.keyIdentifier === 'Alt' )
+            {
+                self.$doc.removeClass( 'alt' );
+            }
+        } );
+    };
     
     EditCtrl.prototype.createContextMenus = function()
     {
@@ -54,6 +77,10 @@
         this.api.remove( id, function()
         {
             $link.addClass( 'removed' );
+            setTimeout( function()
+            {
+                $link.remove();
+            }, 500 );
             mdash.Growl.show( 'Bookmark ' + $link.find( 'span' ).text() + ' has been removed.' );
         } );
     };
@@ -72,17 +99,39 @@
         } );
     };
     
-    EditCtrl.prototype.reload = function()
-    {
-      window.location = window.location;
-    };
-    
     EditCtrl.prototype.toggleEdit = function( e )
     {
         e.preventDefault();
-        
         this.$bookmarks.toggleClass( 'edit' );
-        this.$btn.html( this.$bookmarks.hasClass( 'edit' ) ? 'done' : 'edit' );
+        
+        if( this.$bookmarks.hasClass( 'edit' ) )
+        {
+            var self = this;
+            
+            this.$btn.html( 'done' );
+            this.$bookmarks.find( 'a' ).bind( 'click', function( e )
+            {
+                e.preventDefault();
+                
+                // aaaaargh!
+                self.rename( {
+                    linkUrl: $( e.target ).attr( 'href' )
+                } );
+            } );
+            
+            this.$bookmarks.find( '.del' ).bind( 'click', function( e )
+            {
+                self.remove( {
+                    linkUrl: $( e.target ).parent().attr( 'href' )
+                } );
+            } );
+        }
+        else
+        {
+            this.$btn.html( 'edit' );
+            self.$bookmarks.find( 'a' ).unbind( 'click' );
+            self.$bookmarks.find( '.del' ).unbind( 'click' );
+        }
     };
     
 } )( window.mdash, Zepto );

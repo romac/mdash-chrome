@@ -128,10 +128,32 @@ a:hover {
     margin:                     2px 6px 6px 2px;
     overflow:                   hidden;
     text-overflow:              ellipsis;
+    position:                   relative;
+}
+
+#bookmarks a .del {
+    display:                    none;
+    position:                   absolute;
+    top:                        5px;
+    right:                      5px;
 }
 
 #bookmarks a:hover {
     background-color:           #b6c5ef;
+}
+
+#bookmarks.edit a:hover {
+    background-color:           #FFE1B8;
+}
+
+#bookmarks.edit a:hover .del, .alt #bookmarks a:hover .del {
+    display:                    block;
+    font-size:                  1.3em;
+    font-weight:                bold;
+}
+
+#bookmarks a .del:hover {
+    color:                      #99120A;
 }
 
 #bookmarks a > img {
@@ -171,6 +193,8 @@ a:hover {
     background-color:           #DDD;
     color:                      #AAA;
 }
+
+#bookmarks a.add:hover .del { display: none; }
 
 #bookmarks a.add img {
     display:                    none;
