@@ -91,11 +91,12 @@
         
         if( !$link || !( id = $link.attr( 'id' ) ) ) return;
         
-        var newTitle = prompt( 'Enter a new title: ' );
+        var $title   = $link.find( 'span' ),
+            newTitle = prompt( 'Edit the title: ', $title.text() );
         
         this.api.update( id, { title: newTitle }, function()
         {
-            $link.find( 'span' ).text( newTitle );
+            $title.text( newTitle );
         } );
     };
     
