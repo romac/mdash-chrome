@@ -130,8 +130,8 @@
         else
         {
             this.$btn.html( 'edit' );
-            self.$bookmarks.find( 'a' ).unbind( 'click' );
-            self.$bookmarks.find( '.del' ).unbind( 'click' );
+            this.$bookmarks.find( 'a' ).unbind( 'click' );
+            this.$bookmarks.find( '.del' ).unbind( 'click' );
         }
     };
     
