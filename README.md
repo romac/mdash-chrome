@@ -52,6 +52,7 @@ Browse any website you would like to add to the dashboard and click the star at 
 
 # Changelog
 
+**Version 0.6.3** - Bugfix  
 **Version 0.6.2** - Little UX improvement  
 **Version 0.6.1** - Implement bookmarks edition  
 **Version 0.5.4** - Cosmetic improvements  
