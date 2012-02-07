@@ -9,8 +9,6 @@
     
     proto.init = function()
     {
-        ui.Dialog.effect = 'fade';
-        
         this.$fontSizes  = $( '#fontctrl > a' );
         this.$helpCtrl   = $( '#helpctrl' );
         this.$editBtn    = $( '#edit' );
@@ -28,6 +26,30 @@
         this.editCtrl.init();
         
         this.manager.init( this.loadBookmarks.bind( this ) );
+        
+        this.setupUIKit();
+    };
+    
+    proto.setupUIKit = function()
+    {
+        ui.Dialog.effect = 'fade';
+        
+        $( document ).on( 'keyup', '#dialog', function( e )
+        {
+            var $dialog = $( '#dialog' );
+            
+            if( e.keyCode === 13 /* enter */ )
+            {
+                $dialog.find( 'button.ok' ).click();
+                return;
+            }
+            
+            if( e.keyCode === 27 /* esc */ )
+            {
+                $dialog.find( 'button.cancel' ).click();
+                return;
+            }
+        } );
     };
     
     proto.loadBookmarks = function()

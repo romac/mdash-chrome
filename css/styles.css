@@ -207,13 +207,14 @@ a:hover {
     border-color: #b6c5ef;
 }
 
-.ui-edit-form > a {
+.ui-edit-form > a.remove {
+    color: #96101A;
     display: inline-block;
     margin-top: 25px;
     font: -webkit-small-control;
 }
 
-.ui-edit-form > a:hover {
+.ui-edit-form > a.remove:hover {
     text-decoration: underline;
 }
 

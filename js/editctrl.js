@@ -7,7 +7,7 @@
     
     var EditCtrl = mdash.EditCtrl = function( $btn, $bookmarks )
     {
-        this.$doc       = $( document.documentElement );
+        this.$docEl       = $( document.documentElement );
         this.$btn       = $btn;
         this.$bookmarks = $bookmarks;
         this.api        = chrome.bookmarks;
@@ -21,7 +21,7 @@
         this.listenForAlt();
         this.setupButton();
         
-        this.$doc.on( 'click', '#bookmarks a:not(.add)', function( e )
+        this.$docEl.on( 'click', '#bookmarks a:not(.add)', function( e )
         {
             if( self.editMode )
             {
@@ -51,13 +51,13 @@
             if( self.editMode )
             {
                 self.editMode = false;
-                self.$doc.removeClass( 'edit' );
+                self.$docEl.removeClass( 'edit' );
                 self.$btn.text( 'edit' );
             }
             else
             {
                 self.editMode = true;
-                self.$doc.addClass( 'edit' );
+                self.$docEl.addClass( 'edit' );
                 self.$btn.text( 'done' );
             }
         } );
@@ -65,23 +65,23 @@
     
     EditCtrl.prototype.listenForAlt = function()
     {
-        var $win = $( window ),
+        var $doc = $( document ),
             self = this;
         
-        $win.bind( 'keydown', function( e )
+        $doc.bind( 'keydown', function( e )
         {
-            if( e.keyCode === 18 )
+            if( e.keyCode === 18 /* alt */ )
             {
-                self.$doc.addClass( 'edit' );
+                self.$docEl.addClass( 'edit' );
                 self.editMode = self.altPressed = true;
             }
         } );
         
-        $win.bind( 'keyup', function( e )
+        $doc.bind( 'keyup', function( e )
         {
-            if( e.keyCode === 18 )
+            if( e.keyCode === 18 /* alt */ )
             {
-                self.$doc.removeClass( 'edit' );
+                self.$docEl.removeClass( 'edit' );
                 self.editMode = self.altPressed = false;
             }
         } );
@@ -97,7 +97,7 @@
         $form  = $( '<div class="ui-edit-form">' );
         $title = $( '<input autofocus id="title" type="text"/>' ).val( title ).focus();
         $url   = $( '<input id="url" type="text"/>' ).val( $b.attr( 'href' ) );
-        $rmBtn = $( '<a id="remove" href="#">Remove</a>' ).click( function( e )
+        $rmBtn = $( '<a class="remove" href="#">Remove</a>' ).click( function( e )
         {
             e.preventDefault();
             
@@ -110,6 +110,7 @@
         $form.append( $title, $url, $rmBtn );
         
         dialog = ui.confirm( 'Edit \'' + title + '\'', $form );
+        dialog.overlay();
         dialog.show( function( ok )
         {
             if( ok )

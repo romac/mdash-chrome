@@ -17,7 +17,7 @@
     {
         this.$btn     = $btn;
         this.$section = $btn.closest( 'section' );
-        this.api        = chrome.bookmarks;
+        this.api      = chrome.bookmarks;
     };
     
     AddBtn.prototype.init = function()
@@ -34,7 +34,9 @@
         var modal = ui.confirm(
             'Add a bookmark in \'' + this.$section.find( 'h1' ).text() + '\'',
             $form
-        ).ok( 'Add' );
+        );
+        
+        modal.overlay().ok( 'Add' );
         
         modal.show( function( ok )
         {
