@@ -1,37 +1,79 @@
 
+// FIXME: Refactor!
+// FIXME: Handle pressing alt while in edit mode.
+
 ( function( mdash, $ )
 {
     
     var EditCtrl = mdash.EditCtrl = function( $btn, $bookmarks )
     {
         this.$doc       = $( document.documentElement );
+        this.$btn       = $btn;
         this.$bookmarks = $bookmarks;
         this.api        = chrome.bookmarks;
+        this.editMode   = false;
     };
     
     EditCtrl.prototype.init = function()
     {
+        var self = this;
+        
         this.listenForAlt();
+        this.setupButton();
+        
+        this.$doc.on( 'click', '#bookmarks a', function( e )
+        {
+            if( self.editMode )
+            {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                var $el = $( e.target );
+                
+                if( !$el.is( 'a' ) )
+                {
+                    $el = $el.parent();
+                }
+                
+                self.edit( $el );
+            }
+        } );
+    };
+    
+    EditCtrl.prototype.setupButton = function()
+    {
+        var self = this;
+        
+        this.$btn.click( function()
+        {
+            if( self.altPressed ) return;
+            
+            if( self.editMode )
+            {
+                self.editMode = false;
+                self.$doc.removeClass( 'edit' );
+                self.$btn.text( 'edit' );
+            }
+            else
+            {
+                self.editMode = true;
+                self.$doc.addClass( 'edit' );
+                self.$btn.text( 'done' );
+            }
+        } );
     };
     
     EditCtrl.prototype.listenForAlt = function()
     {
         var $win = $( window ),
-            self = this,
-            edit = function( e )
-            {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                self.edit( $( e.target ) );
-            };
+            self = this;
         
         $win.bind( 'keydown', function( e )
         {
             if( e.keyCode === 18 )
             {
-                self.$doc.addClass( 'alt' );
-                self.$doc.on( 'click', '#bookmarks a', edit );
+                self.$doc.addClass( 'edit' );
+                self.editMode = self.altPressed = true;
             }
         } );
         
@@ -39,8 +81,8 @@
         {
             if( e.keyCode === 18 )
             {
-                self.$doc.removeClass( 'alt' );
-                self.$doc.off( 'click', '#bookmarks a', edit );
+                self.$doc.removeClass( 'edit' );
+                self.editMode = self.altPressed = false;
             }
         } );
     };
