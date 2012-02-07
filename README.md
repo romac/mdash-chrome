@@ -52,9 +52,11 @@ Browse any website you would like to add to the dashboard and click the star at 
 
 # Changelog
 
+**Version 0.7.2** - UX improvements  
+**Version 0.7.1** - Bugfix  
 **Version 0.7.0** - Add/edit/remove bookmarks directly from the dashboard  
 **Version 0.6.3** - Bugfix  
-**Version 0.6.2** - Little UX improvement  
+**Version 0.6.2** - Little UX improvements  
 **Version 0.6.1** - Implement bookmarks edition  
 **Version 0.5.4** - Cosmetic improvements  
 **Version 0.5.3** - Bugfix  
