@@ -65,7 +65,9 @@ Browse any website you would like to add to the dashboard and click the star at 
 
 **mdash** is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 
----
+# Credits
 
 Brought to you with love by [@P45C4L](http://twitter.com/P45C4L) and [@_romac](http://twitter.com/_romac).  
 Many thanks to [@ntzog](http://tzog.ch) for the icon ! It's beautiful, isn't it ?
+
+mdash makes a great use of the awesome UI components from [UIKit](http://visionmedia.github.com/uikit/) by [@visionmedia](http://github.com/visionmedia).
