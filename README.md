@@ -6,9 +6,11 @@
 
 # Usage
 
-Please [visit the website](http://romac.me/mdash/) for more informations.
+If you only want to install the extension, please [visit the website](http://romac.me/mdash/) for more informations.
 
-## Latest version (from source)
+# Wanna help ?
+
+**Warning:** The code is quite awful at the moment. A big refactoring is on its way, hopefully.
 
 1. Clone the repository.  
    `$ git clone https://romac@github.com/romac/mdash.git`
