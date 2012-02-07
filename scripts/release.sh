@@ -3,8 +3,8 @@
 OLD=$1
 NEW=$2
 
-cat js/dashboard.js | sed "s/'$OLD'/'$NEW'/g" #> js/dashboard.js
-cat manifest.json | sed s/"$OLD"/"$NEW"/g #> manifest.json
+cat js/dashboard.js | sed "s/'$OLD'/'$NEW'/g" > js/dashboard.js
+cat manifest.json | sed s/"$OLD"/"$NEW"/g > manifest.json
 git add js/dashboard.js manifest.json
 git commit -m "Bump version number to $NEW"
 git tag v$NEW
