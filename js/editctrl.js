@@ -110,7 +110,7 @@
         $form.append( $title, $url, $rmBtn );
         
         dialog = ui.confirm( 'Edit \'' + title + '\'', $form );
-        dialog.overlay();
+        dialog.overlay().ok( 'Save' );
         dialog.show( function( ok )
         {
             if( ok )
