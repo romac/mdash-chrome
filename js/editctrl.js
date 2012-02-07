@@ -21,7 +21,7 @@
         this.listenForAlt();
         this.setupButton();
         
-        this.$doc.on( 'click', '#bookmarks a', function( e )
+        this.$doc.on( 'click', '#bookmarks a:not(.add)', function( e )
         {
             if( self.editMode )
             {
