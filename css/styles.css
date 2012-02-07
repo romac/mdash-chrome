@@ -199,6 +199,12 @@ a:hover {
     border: 1px solid #B2B2B2;
     box-shadow: 1px 1px 2px #CCC;
     margin-top: 10px;
+    border-radius: 3px;
+}
+
+:-webkit-any(.ui-edit-form,.ui-add-form) > input:focus {
+    outline: none;
+    border-color: #b6c5ef;
 }
 
 .ui-edit-form > a {
@@ -217,6 +223,7 @@ a:hover {
     font: -webkit-small-control;
 }
 
-#dialog.confirmation .content {
-    padding-bottom: 5px;
+#notifications {
+    top: auto !important;
+    bottom: 10px;
 }

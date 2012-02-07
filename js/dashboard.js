@@ -9,6 +9,8 @@
     
     proto.init = function()
     {
+        ui.Dialog.effect = 'fade';
+        
         this.$fontSizes  = $( '#fontctrl > a' );
         this.$helpCtrl   = $( '#helpctrl' );
         this.$editBtn    = $( '#edit' );

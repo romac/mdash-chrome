@@ -138,7 +138,7 @@
             setTimeout( function() { $el.remove(); }, 500 );
             
             ui.notify(
-                'Bookmark ' + $el.find( 'span' ).text() + ' has been removed.'
+                'Bookmark \'' + $el.find( 'span' ).text() + '\' has been removed.'
             );
         } );
     };
