@@ -104,6 +104,7 @@ a:hover {
 }
 
 #bookmarks a {
+    position:                   relative;
     display:                    block;
     text-decoration:            none;
     font-size:                  0.9em;
@@ -123,27 +124,28 @@ a:hover {
     position:                   relative;
 }
 
-#bookmarks a .del {
-    display:                    none;
-    position:                   absolute;
-    top:                        5px;
-    right:                      5px;
-}
-
 #bookmarks a:hover {
     background-color:           #b6c5ef;
 }
 
-#bookmarks.edit a:hover .del,
-.alt #bookmarks a:hover .del {
-    display:                    block;
-    font-size:                  1.3em;
-    font-weight:                bold;
+.alt #bookmarks a:hover {
+    background-color:           #FFDBA9;
 }
 
-#bookmarks a .del:hover {
-    color:                      #99120A;
+#bookmarks a .edit {
+    display:                    none;
+    position:                   absolute;
+    bottom:                     5px;
+    right:                      5px;
 }
+
+/*.alt #bookmarks a .edit {
+    display:                    block;
+}
+
+#bookmarks a .edit:hover {
+    color:                      #99120A;
+}*/
 
 #bookmarks a > img {
     margin-right:               0px;
@@ -205,4 +207,33 @@ a:hover {
 
 #controls a:hover, #controls a.selected {
     text-decoration:            underline;
+}
+
+.ui-edit-form > input {
+    clear: both;
+    width: 95%;
+    padding: 5px 5px;
+    border: 1px solid #B2B2B2;
+    box-shadow: 1px 1px 2px #CCC;
+    margin-top: 10px;
+}
+
+.ui-edit-form > a {
+    display: inline-block;
+    margin-top: 25px;
+    font: -webkit-small-control;
+}
+
+.ui-edit-form > a:hover {
+    text-decoration: underline;
+}
+
+/* Override UKit styles */
+
+#dialog h1 {
+    font: -webkit-small-control;
+}
+
+#dialog.confirmation .content {
+    padding-bottom: 5px;
 }

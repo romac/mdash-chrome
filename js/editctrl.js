@@ -5,134 +5,118 @@
     var EditCtrl = mdash.EditCtrl = function( $btn, $bookmarks )
     {
         this.$doc       = $( document.documentElement );
-        this.$btn       = $btn;
         this.$bookmarks = $bookmarks;
         this.api        = chrome.bookmarks;
-        this.altPressed = false;
     };
     
     EditCtrl.prototype.init = function()
     {
-        var self = this;
-        this.removeContextMenus();
-        
-        this.$btn.bind( 'click', this.toggleEdit.bind( this ) );
+        this.listenForAlt();
     };
     
     EditCtrl.prototype.listenForAlt = function()
     {
-        var $win = $( window ), self = this;
+        var $win = $( window ),
+            self = this,
+            edit = function( e )
+            {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                self.edit( $( e.target ) );
+            };
         
         $win.bind( 'keydown', function( e )
         {
-            if( e.keyIdentifier === 'Alt' )
+            if( e.keyCode === 18 )
             {
                 self.$doc.addClass( 'alt' );
+                self.$doc.on( 'click', '#bookmarks a', edit );
             }
         } );
         
         $win.bind( 'keyup', function( e )
         {
-            if( e.keyIdentifier === 'Alt' )
+            if( e.keyCode === 18 )
             {
                 self.$doc.removeClass( 'alt' );
+                self.$doc.off( 'click', '#bookmarks a', edit );
             }
         } );
     };
     
-    EditCtrl.prototype.createContextMenus = function()
+    EditCtrl.prototype.edit = function( $b )
     {
-        chrome.contextMenus.create(
-            {
-                type                : 'normal',
-                title               : 'Remove bookmark',
-                contexts            : [ 'link' ],
-                onclick             : this.remove.bind( this ),
-                // documentUrlPatterns : [ 'chrome://*' ]
-            }
-        );
+        var $form, $title, $url, $remove, dialog,
+            self  = this,
+            id    = $b.attr( 'id' ),
+            title = $b.find( 'span' ).text();
         
-        chrome.contextMenus.create(
+        $form  = $( '<div class="ui-edit-form">' );
+        $title = $( '<input autofocus id="title" type="text"/>' ).val( title ).focus();
+        $url   = $( '<input id="url" type="text"/>' ).val( $b.attr( 'href' ) );
+        $rmBtn = $( '<a id="remove" href="#">Remove</a>' ).click( function( e )
+        {
+            e.preventDefault();
+            
+            self.remove( id, function()
             {
-                type                : 'normal',
-                title               : 'Rename bookmark',
-                contexts            : [ 'link' ],
-                onclick             : this.rename.bind( this ),
-                // documentUrlPatterns : [ 'chrome://*' ]
+                dialog.hide();
+            } );
+        } );
+        
+        $form.append( $title, $url, $rmBtn );
+        
+        dialog = ui.confirm( 'Edit \'' + title + '\'', $form );
+        dialog.show( function( ok )
+        {
+            if( ok )
+            {
+                self.update( id, {
+                    title: $title.val(),
+                    url  : $url.val()
+                }, function() { dialog.hide(); } );
             }
-        );
+            else
+            {
+                dialog.hide();
+            }
+        } );
     };
     
-    EditCtrl.prototype.removeContextMenus = function()
+    EditCtrl.prototype.remove = function( id, callback )
     {
-        chrome.contextMenus.removeAll( this.createContextMenus.bind( this ) );
-    };
-    
-    EditCtrl.prototype.remove = function( info, tab )
-    {
-        var id, $link = $( mdash.links[ info.linkUrl ] );
-        
-        if( !$link || !( id = $link.attr( 'id' ) ) ) return;
+        var $el = $( document.getElementById( id ) );
         
         this.api.remove( id, function()
         {
-            $link.addClass( 'removed' );
-            setTimeout( function()
-            {
-                $link.remove();
-            }, 500 );
-            mdash.Growl.show( 'Bookmark ' + $link.find( 'span' ).text() + ' has been removed.' );
+            $el.addClass( 'removed' );
+            
+            setTimeout( callback, 0 );
+            setTimeout( function() { $el.remove(); }, 500 );
+            
+            ui.notify(
+                'Bookmark ' + $el.find( 'span' ).text() + ' has been removed.'
+            );
         } );
     };
     
-    EditCtrl.prototype.rename = function( info, tab )
+    EditCtrl.prototype.update = function( id, props, callback )
     {
-        var id, $link = $( mdash.links[ info.linkUrl ] );
+        var $el    = $( document.getElementById( id ) ),
+            $title = $el.find( 'span' )
         
-        if( !$link || !( id = $link.attr( 'id' ) ) ) return;
-        
-        var $title   = $link.find( 'span' ),
-            newTitle = prompt( 'Edit the title: ', $title.text() );
-        
-        this.api.update( id, { title: newTitle }, function()
+        this.api.update( id, props, function()
         {
-            $title.text( newTitle );
+            props.title && $title.text( props.title );
+            props.url   && $el.attr( 'href', props.url );
+            
+            setTimeout( callback, 0 );
+            
+            ui.notify(
+                'Bookmark \'' + $title.text() + '\' has been updated.'
+            );
         } );
-    };
-    
-    EditCtrl.prototype.toggleEdit = function( e )
-    {
-        e.preventDefault();
-        this.$bookmarks.toggleClass( 'edit' );
-        
-        if( this.$bookmarks.hasClass( 'edit' ) )
-        {
-            var self = this;
-            
-            this.$btn.html( 'done' );
-            this.$bookmarks.find( 'a' ).bind( 'click', function( e )
-            {
-                e.preventDefault();
-                
-                // aaaaargh!
-                self.rename( {
-                    linkUrl: $( e.target ).attr( 'href' )
-                } );
-            } );
-            
-            this.$bookmarks.find( '.del' ).bind( 'click', function( e )
-            {
-                self.remove( {
-                    linkUrl: $( e.target ).parent().attr( 'href' )
-                } );
-            } );
-        }
-        else
-        {
-            this.$btn.html( 'edit' );
-            this.$bookmarks.find( 'a' ).unbind( 'click' );
-            this.$bookmarks.find( '.del' ).unbind( 'click' );
-        }
     };
     
 } )( window.mdash, window.jQuery || window.Zepto );
