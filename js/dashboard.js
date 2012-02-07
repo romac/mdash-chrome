@@ -48,4 +48,4 @@
         } );
     };
     
-} )( window.mdash, Zepto );
+} )( window.mdash, window.jQuery || window.Zepto );
