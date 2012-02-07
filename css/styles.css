@@ -128,24 +128,9 @@ a:hover {
     background-color:           #b6c5ef;
 }
 
-.alt #bookmarks a:hover {
+.edit #bookmarks a:hover {
     background-color:           #FFDBA9;
 }
-
-#bookmarks a .edit {
-    display:                    none;
-    position:                   absolute;
-    bottom:                     5px;
-    right:                      5px;
-}
-
-/*.alt #bookmarks a .edit {
-    display:                    block;
-}
-
-#bookmarks a .edit:hover {
-    color:                      #99120A;
-}*/
 
 #bookmarks a > img {
     margin-right:               0px;
@@ -175,8 +160,8 @@ a:hover {
     display:                    none;
 }
 
-#bookmarks.edit a.add {
-/*    display:                    -webkit-box;*/
+.edit #bookmarks a.add {
+    display:                    -webkit-box;
 }
 
 #bookmarks a.add:hover {
@@ -184,8 +169,6 @@ a:hover {
     background-color:           #DDD;
     color:                      #AAA;
 }
-
-#bookmarks a.add:hover .del { display: none; }
 
 #bookmarks a.add img {
     display:                    none;
@@ -209,7 +192,7 @@ a:hover {
     text-decoration:            underline;
 }
 
-.ui-edit-form > input {
+:-webkit-any(.ui-edit-form,.ui-add-form) > input {
     clear: both;
     width: 95%;
     padding: 5px 5px;

@@ -26,7 +26,7 @@
     proto.renderSection = function( section )
     {
         var _this    = this,
-            $section = ich.section( { title : section.title } );
+            $section = ich.section( section );
         
         section.children.forEach( function( bookmark )
         {
