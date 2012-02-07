@@ -81,22 +81,14 @@ a:hover {
     margin-top:                 0px;
 }
 
-#bookmarks > .left {
-    position:                   fixed;
-    float:                      left;
-    width:                      49%;
+#bookmarks > div {
+    width:                      48%;
     margin:                     0px 0px 30px 0px;
-    padding:                    0px 0px 0px 0px;
+    padding:                    0;
 }
 
-#bookmarks > .right {
-    float:                      right;
-    width:                      49%;
-    margin:                     0px 0px 0px 30px;
-    padding:                    0px 0px 60px 0px;
-}
-
-#bookmarks > .left, #bookmarks > .right {}
+#bookmarks > .left {            float: left; }
+#bookmarks > .right {           float: right; }
 
 #bookmarks section {
     clear:                      both;
@@ -142,11 +134,8 @@ a:hover {
     background-color:           #b6c5ef;
 }
 
-#bookmarks.edit a:hover {
-    background-color:           #FFE1B8;
-}
-
-#bookmarks.edit a:hover .del, .alt #bookmarks a:hover .del {
+#bookmarks.edit a:hover .del,
+.alt #bookmarks a:hover .del {
     display:                    block;
     font-size:                  1.3em;
     font-weight:                bold;
