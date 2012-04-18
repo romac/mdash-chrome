@@ -16,8 +16,8 @@
         this.$bookmarks  = $( '#bookmarks' );
         this.$version    = $( '#version' );
         
-        this.manager  = new mdash.Manager(),
-        this.fontCtrl = new mdash.FontCtrl( this.$fontSizes ),
+        this.manager  = new mdash.Manager();
+        this.fontCtrl = new mdash.FontCtrl( this.$fontSizes );
         this.helpCtrl = new mdash.HelpCtrl( this.$helpCtrl, this.$getStarted, this.$bookmarks );
         this.editCtrl = new mdash.EditCtrl( this.$editBtn, this.$bookmarks );
         
