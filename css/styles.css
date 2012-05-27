@@ -105,13 +105,13 @@ a:hover {
 
 #bookmarks a {
     position:                   relative;
-    display:                    block;
+    display:                    inline-block;
+    vertical-align:             bottom;
     text-decoration:            none;
     font-size:                  0.9em;
     font-weight:                normal;
     letter-spacing:             0.1em;
     line-height:                1.4;
-    float:                      left;
     background-color:           #FFFFFF;
     border-radius:              6px 6px 6px 6px;
     box-shadow:                 0 1px 3px #CCCCCC;
@@ -146,7 +146,6 @@ a:hover {
 #bookmarks a.add {
     opacity:                    0.7;
     background-color:           #F1F1F1;
-    display:                    -webkit-box;
     -webkit-box-orient:         vertical;
     -webkit-box-pack:           center;
     -webkit-box-align:          center;
@@ -161,7 +160,7 @@ a:hover {
 }
 
 .edit #bookmarks a.add {
-    display:                    -webkit-box;
+    display:                    -webkit-inline-box;
 }
 
 #bookmarks a.add:hover {
