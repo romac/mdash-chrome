@@ -5,7 +5,7 @@
     var Dashboard = mdash.Dashboard = function() {},
         proto     = Dashboard.prototype;
     
-    Dashboard.VERSION = '0.7.4';
+    Dashboard.VERSION = '0.7.5';
     
     proto.init = function()
     {
