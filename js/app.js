@@ -7,8 +7,8 @@
         document.documentElement.classList.add( 'win' );
     }
     
-    var dashboard = new mdash.Dashboard();
+    mdash.dashboard = new mdash.Dashboard();
     
-    $( document ).ready( dashboard.init.bind( dashboard ) );
+    $( document ).ready( mdash.dashboard.init.bind( mdash.dashboard ) );
     
 } )( window.mdash );

@@ -206,6 +206,12 @@ a:hover {
     border-color: #b6c5ef;
 }
 
+.ui-edit-form > select {
+    width: 98%;
+    clear: both;
+    margin-top: 10px;
+}
+
 .ui-edit-form > a.remove {
     color: #96101A;
     display: inline-block;

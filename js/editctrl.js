@@ -89,14 +89,26 @@
     
     EditCtrl.prototype.edit = function( $b )
     {
-        var $form, $title, $url, $remove, dialog,
+        var $form, $title, $url, $section, $remove, dialog,
             self  = this,
             id    = $b.attr( 'id' ),
-            title = $b.find( 'span' ).text();
+            title = $b.find( 'span' ).text(),
+            sections = mdash.dashboard.manager.folder.children;
         
         $form  = $( '<div class="ui-edit-form">' );
         $title = $( '<input autofocus id="title" type="text"/>' ).val( title ).focus();
         $url   = $( '<input id="url" type="text"/>' ).val( $b.attr( 'href' ) );
+
+        var sectionsSelectHtml = '<select id="section">';
+        sections.forEach( function( section )
+        {
+            sectionsSelectHtml += '<option value="' + section.id + '">' + section.title + '</option>';
+        } );
+        sectionsSelectHtml += '</section>';
+        $section = $( sectionsSelectHtml );
+
+console.debug( $section );
+
         $rmBtn = $( '<a class="remove" href="#">Remove</a>' ).click( function( e )
         {
             e.preventDefault();
@@ -107,7 +119,7 @@
             } );
         } );
         
-        $form.append( $title, $url, $rmBtn );
+        $form.append( $title, $url, $section, $rmBtn );
         
         dialog = ui.confirm( 'Edit \'' + title + '\'', $form );
         dialog.overlay().ok( 'Save' );
