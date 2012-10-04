@@ -79,4 +79,4 @@
         } );
     };
     
-} )( window.mdash );
+} )( window.mdash || ( window.mdash = {} ) );

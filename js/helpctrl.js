@@ -32,4 +32,4 @@
         this.$interface.show();
     };
     
-} )( window.mdash );
+} )( window.mdash || ( window.mdash = {} ) );

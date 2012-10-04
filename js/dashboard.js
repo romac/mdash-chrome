@@ -41,13 +41,10 @@
             if( e.keyCode === 13 /* enter */ )
             {
                 $dialog.find( 'button.ok' ).click();
-                return;
             }
-            
-            if( e.keyCode === 27 /* esc */ )
+            else if( e.keyCode === 27 /* esc */ )
             {
                 $dialog.find( 'button.cancel' ).click();
-                return;
             }
         } );
     };
@@ -72,4 +69,4 @@
         } );
     };
     
-} )( window.mdash, window.jQuery || window.Zepto );
+} )( window.mdash || ( window.mdash = {} ), window.jQuery || window.Zepto );

@@ -66,4 +66,4 @@
         return ich.bookmark( data );
     };
 
-} )( window.mdash );
+} )( window.mdash || ( window.mdash = {} ) );

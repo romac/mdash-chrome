@@ -107,8 +107,6 @@
         sectionsSelectHtml += '</section>';
         $section = $( sectionsSelectHtml );
 
-console.debug( $section );
-
         $rmBtn = $( '<a class="remove" href="#">Remove</a>' ).click( function( e )
         {
             e.preventDefault();
@@ -125,17 +123,20 @@ console.debug( $section );
         dialog.overlay().ok( 'Save' );
         dialog.show( function( ok )
         {
-            if( ok )
-            {
-                self.update( id, {
-                    title: $title.val(),
-                    url  : $url.val()
-                }, function() { dialog.hide(); } );
-            }
-            else
+            if( !ok )
             {
                 dialog.hide();
+                return;
             }
+
+            self.update(
+                id,
+                {
+                    title: $title.val(),
+                    url  : $url.val()
+                },
+                function() { dialog.hide(); }
+            );
         } );
     };
     
@@ -174,4 +175,4 @@ console.debug( $section );
         } );
     };
     
-} )( window.mdash, window.jQuery || window.Zepto );
+} )( window.mdash || ( window.mdash = {} ), window.jQuery || window.Zepto );

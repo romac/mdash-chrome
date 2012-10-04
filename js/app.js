@@ -11,4 +11,4 @@
     
     $( document ).ready( mdash.dashboard.init.bind( mdash.dashboard ) );
     
-} )( window.mdash );
+} )( window.mdash || ( window.mdash = {} ) );

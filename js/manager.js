@@ -181,4 +181,4 @@
         this.createPlaceholder = function() { callback() };
     };
     
-} )( window.mdash );
+} )( window.mdash || ( window.mdash = {} ) );

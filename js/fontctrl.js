@@ -37,4 +37,4 @@
         document.body.className = localStorage.fontSize = $this.attr( 'data-size' );
     };
     
-} )( window.mdash );
+} )( window.mdash || ( window.mdash = {} ) );
