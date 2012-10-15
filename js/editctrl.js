@@ -93,7 +93,8 @@
             self  = this,
             id    = $b.attr( 'id' ),
             title = $b.find( 'span' ).text(),
-            sections = mdash.dashboard.manager.folder.children;
+            sections = mdash.dashboard.manager.folder.children,
+            sectionId = +$b.closest( 'section' ).attr( 'id' );
         
         $form  = $( '<div class="ui-edit-form">' );
         $title = $( '<input autofocus id="title" type="text"/>' ).val( title ).focus();
@@ -105,7 +106,7 @@
             sectionsSelectHtml += '<option value="' + section.id + '">' + section.title + '</option>';
         } );
         sectionsSelectHtml += '</section>';
-        $section = $( sectionsSelectHtml );
+        $section = $( sectionsSelectHtml ).val( sectionId );
 
         $rmBtn = $( '<a class="remove" href="#">Remove</a>' ).click( function( e )
         {
@@ -132,9 +133,10 @@
             self.update(
                 id,
                 {
-                    title: $title.val(),
-                    url  : $url.val()
+                    title   : $title.val(),
+                    url     : $url.val()
                 },
+                $section.val() != sectionId ? $section.val() : null,
                 function() { dialog.hide(); }
             );
         } );
@@ -157,21 +159,36 @@
         } );
     };
     
-    EditCtrl.prototype.update = function( id, props, callback )
+    EditCtrl.prototype.update = function( id, props, moveTo, callback )
     {
         var $el    = $( document.getElementById( id ) ),
-            $title = $el.find( 'span' )
-        
+            $title = $el.find( 'span' ),
+            self   = this;
+
         this.api.update( id, props, function()
         {
             props.title && $title.text( props.title );
             props.url   && $el.attr( 'href', props.url );
             
-            setTimeout( callback, 0 );
-            
-            ui.notify(
-                'Bookmark \'' + $title.text() + '\' has been updated.'
-            );
+            // FIXME: So ugly I almost puked writing that stuff. Refactor!
+            if( moveTo )
+            {
+                self.api.move( id, { parentId: moveTo }, function()
+                {
+                    $( '#' + id ).remove().appendTo( $( '#' + moveTo ) );
+                    setTimeout( callback, 0 );
+                    ui.notify(
+                        'Bookmark \'' + $title.text() + '\' has been updated.'
+                    );
+                } );
+            }
+            else
+            {
+                setTimeout( callback, 0 );
+                ui.notify(
+                    'Bookmark \'' + $title.text() + '\' has been updated.'
+                );
+            }
         } );
     };
     
