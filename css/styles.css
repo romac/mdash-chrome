@@ -2,7 +2,7 @@
 @import url( http://fonts.googleapis.com/css?family=Lekton:700&v2 );
 
 body {
-    background:                 #EFEFEF url( bg.png ) top left repeat;
+    background:                 #EFEFEF url( ../img/bg.png ) top left repeat;
     font-family:                Helvetica, Arial, serif;
     margin:                     0px 0px 0px 0px;
     padding:                    0px 0px 0px 20px;
