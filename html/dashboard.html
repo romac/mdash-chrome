@@ -55,14 +55,18 @@
             ·
             <a id="helpctrl" href="#">?</a>
         </div>
-        
+
+        <div id="filter">
+            <p></p>
+        </div>
+
         <script id="section" type="text/html">
         <section id="{{ id }}">
             <h1>{{ title }}</h1>
         </section>
         </script>
         <script id="bookmark" type="text/html">
-        <a id="{{ id }}" href="{{ url }}" class="{{ className }}">
+        <a id="{{ id }}" href="{{ url }}" class="{{ className }}" data-title="{{ title }}">
             <img src="{{ favicon }}" alt="{{ title }}" />
             <span>{{ title }}</span>
         </a>
@@ -75,6 +79,7 @@
         <script src="../js/fontctrl.js"></script>
         <script src="../js/helpctrl.js"></script>
         <script src="../js/editctrl.js"></script>
+        <script src="../js/keyboard_manager.js"></script>
         <script src="../js/addbtn.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="../js/app.js"></script>

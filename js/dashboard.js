@@ -16,10 +16,11 @@
         this.$bookmarks  = $( '#bookmarks' );
         this.$version    = $( '#version' );
 
-        this.manager  = new mdash.Manager();
-        this.fontCtrl = new mdash.FontCtrl( this.$fontSizes );
-        this.helpCtrl = new mdash.HelpCtrl( this.$helpCtrl, this.$getStarted, this.$bookmarks );
-        this.editCtrl = new mdash.EditCtrl( this.$editBtn, this.$bookmarks );
+        this.manager         = new mdash.Manager();
+        this.fontCtrl        = new mdash.FontCtrl( this.$fontSizes );
+        this.helpCtrl        = new mdash.HelpCtrl( this.$helpCtrl, this.$getStarted, this.$bookmarks );
+        this.editCtrl        = new mdash.EditCtrl( this.$editBtn, this.$bookmarks );
+        this.keyboardManager = new mdash.KeyboardManager();
 
         this.fontCtrl.init();
         this.helpCtrl.init();
@@ -28,6 +29,8 @@
         this.manager.init( this.loadBookmarks.bind( this ) );
 
         this.setupUIKit();
+
+        this.keyboardManager.init();
     };
 
     proto.setupUIKit = function()

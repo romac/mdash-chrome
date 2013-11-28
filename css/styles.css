@@ -233,3 +233,14 @@ a:hover {
     top: auto !important;
     bottom: 10px;
 }
+
+#filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#filter p {
+    text-align: center;
+}
