@@ -34,6 +34,9 @@
                     } else {
                         _this.searchTerm = _this.searchTerm.slice(0, -1);
                     }
+
+                    // Prevents the address bar from getting focus
+                    e.preventDefault();
                 }
                 else
                 {
