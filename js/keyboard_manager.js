@@ -2,24 +2,30 @@
 ( function( mdash )
 {
 
+        var ENABLED = 'mdash:keyboard:isEnabled';
+
         var KeyboardManager = mdash.KeyboardManager = function() {},
                 proto       = KeyboardManager.prototype;
 
-        proto.isEnabled = false;
-
+        // TODO: Use ES5 getter/setter.
         proto.enable = function()
         {
-            this.isEnabled = true
+            localStorage[ENABLED] = "enabled";
         };
 
         proto.disable = function()
         {
-            this.isEnabled = true
+            localStorage[ENABLED] = "enabled";
         };
 
         proto.toggle = function()
         {
-            this.isEnabled = !this.isEnabled;
+            localStorage[ENABLED] = (localStorage[ENABLED] === 'enabled') ? 'disabled' : 'enabled';
+        };
+
+        proto.isEnabled = function()
+        {
+            return localStorage[ENABLED] === "enabled";
         };
 
         proto.init = function()
@@ -31,6 +37,10 @@
                 16  // Shift
             ];
 
+            if (localStorage[ENABLED] == null) {
+                this.enable();
+            }
+
             this.bindKeyboard();
         }
 
@@ -39,6 +49,10 @@
             var _this = this;
 
             $(document).on('keydown', function(e) {
+
+                if (!_this.isEnabled()) {
+                    return;
+                }
 
                 if (_this.isModifierKey(e.which))
                 {
