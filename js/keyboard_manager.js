@@ -1,15 +1,33 @@
+
 ( function( mdash )
 {
 
         var KeyboardManager = mdash.KeyboardManager = function() {},
                 proto       = KeyboardManager.prototype;
 
+        proto.isEnabled = false;
+
+        proto.enable = function()
+        {
+            this.isEnabled = true
+        };
+
+        proto.disable = function()
+        {
+            this.isEnabled = true
+        };
+
+        proto.toggle = function()
+        {
+            this.isEnabled = !this.isEnabled;
+        };
+
         proto.init = function()
         {
             this.searchTerm       = "";
             this.modifierPressed  = false;
             this.modifierKeyCodes = [
-                93, // ⌘
+                91, // ⌘
                 16  // Shift
             ];
 
@@ -28,7 +46,7 @@
                 }
                 else if (e.which == 8)
                 {
-                    // Backspace
+                    // Backspaces
                     if (_this.modifierPressed) {
                         _this.searchTerm = '';
                     } else {
@@ -40,7 +58,7 @@
                 }
                 else
                 {
-                    if (e.which >= 65 && e.which <= 90)
+                    if (/*!_this.modifierPressed &&*/ e.which >= 65 && e.which <= 90)
                     {
                         _this.searchTerm += String.fromCharCode(e.which);
                     }
