@@ -41,7 +41,7 @@
                 this.enable();
             }
 
-            this.bindKeyboard();
+            // this.bindKeyboard();
         }
 
         proto.bindKeyboard = function()
