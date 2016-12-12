@@ -25,7 +25,7 @@
 
         proto.isEnabled = function()
         {
-            return localStorage[ENABLED] === "enabled";
+            return localStorage[ENABLED] != null && localStorage[ENABLED] === 'enabled';
         };
 
         proto.init = function()
@@ -38,14 +38,18 @@
             ];
 
             if (localStorage[ENABLED] == null) {
-                this.enable();
+                this.disable();
             }
 
-            // this.bindKeyboard();
+            if (localStorage[ENABLED]) {
+              this.bindKeyboard();
+            }
         }
 
         proto.bindKeyboard = function()
         {
+            return;
+
             var _this = this;
 
             $(document).on('keydown', function(e) {

@@ -101,6 +101,7 @@ a:hover {
     font-size:                  0.9em;
     color:                      #666666;
     font-weight:                bold;
+    padding-left:               8px;
 }
 
 #bookmarks a {
