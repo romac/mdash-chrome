@@ -40,7 +40,7 @@
             className : 'add',
             title     : '+',
             url       : '#add',
-            favicon   : 'chrome://favicon/default'
+            favicon   : 'http://www.google.com/s2/favicons?domain=default'
         } );
         
         $section.append( $addBtn );
@@ -60,7 +60,7 @@
             id      : bookmark.id,
             title   : bookmark.title,
             url     : link.href,
-            favicon : bookmark.favicon ? bookmark.favicon : 'chrome://favicon/' + link.origin
+            favicon : bookmark.favicon ? bookmark.favicon : 'http://www.google.com/s2/favicons?domain=' + link.origin
         };
         
         return ich.bookmark( data );

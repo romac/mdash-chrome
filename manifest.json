@@ -1,7 +1,7 @@
 {
     "manifest_version" : 2,
     "name"           : "mdash",
-    "version"        : "0.9.1",
+    "version"        : "0.9.2",
     "description"    : "A minimal dashboard replacing the \"New Tab\" page which syncs with your bookmarks.",
     "icons": {
         "16":  "img/icon-16.png",
@@ -10,7 +10,6 @@
     },
     "permissions": [
         "bookmarks",
-        "chrome://favicon/*",
         "contextMenus"
     ],
     "chrome_url_overrides" : {
