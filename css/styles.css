@@ -245,3 +245,45 @@ a:hover {
 #filter p {
     text-align: center;
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: #202124;
+	}
+
+	a,
+	a:hover {
+		color: #8ab4f8;
+	}
+
+	#bookmarks h1 {
+		color: #e8eaed;
+	}
+
+	#bookmarks a {
+		background: none;
+		background-color: inherit;
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0px 1px 3px 1px;
+		border: 1px solid #5f6368;
+	}
+
+	#bookmarks a:hover,
+	.edit #bookmarks a:hover {
+		background-color: rgba(138, 180, 248, 0.08);
+	}
+
+	#bookmarks a:active,
+	.edit #bookmarks a:active {
+		background-color: rgba(138, 180, 248, 0.16);
+	}
+
+	#bookmarks a.add {
+		opacity: 1;
+		background-color: inherit;
+		border: 1px solid #5f6368;
+	}
+
+	#bookmarks a.add:hover {
+		background-color: inherit;
+	}
+}
